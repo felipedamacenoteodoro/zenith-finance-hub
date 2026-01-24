@@ -2,78 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@600;700;800&display=swap');
 
 @layer base {
   :root {
-    /* Finance Portal - Dark Professional Theme */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    /* InfoMoney Style - Light Professional Theme */
+    --background: 0 0% 98%;
+    --foreground: 220 20% 10%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
 
-    /* Emerald Green - Money accent */
-    --primary: 160 84% 39%;
-    --primary-foreground: 210 40% 98%;
+    /* InfoMoney Green Accent */
+    --primary: 145 63% 42%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 10%;
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 160 84% 39%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 145 63% 42%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 160 84% 39%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 145 63% 42%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
-    /* Custom Finance Colors */
-    --finance-green: 160 84% 39%;
-    --finance-green-light: 160 60% 50%;
-    --finance-red: 0 72% 51%;
-    --finance-gold: 45 93% 47%;
-    --finance-navy: 222 47% 11%;
-    --finance-navy-light: 222 35% 20%;
-
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(222 47% 12%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(222 47% 10%) 0%, hsl(222 47% 8%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 60% 50%) 100%);
-
-    /* Shadows */
-    --shadow-card: 0 4px 20px -4px rgba(0, 0, 0, 0.4);
-    --shadow-elevated: 0 8px 30px -8px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 40px -10px hsl(160 84% 39% / 0.3);
+    /* InfoMoney Specific Colors */
+    --im-green: 145 63% 42%;
+    --im-green-dark: 145 70% 35%;
+    --im-red: 0 72% 51%;
+    --im-blue: 210 100% 45%;
+    --im-gray-dark: 220 20% 20%;
+    --im-gray-medium: 220 10% 45%;
+    --im-gray-light: 220 14% 96%;
+    --im-border: 220 13% 88%;
 
     /* Typography */
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
 
     /* Sidebar */
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 160 84% 39%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 222 47% 12%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 18%;
-    --sidebar-ring: 160 84% 39%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 10%;
+    --sidebar-primary: 145 63% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 145 63% 42%;
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    --background: 220 20% 10%;
+    --foreground: 0 0% 98%;
   }
 }
 
@@ -91,123 +83,151 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    @apply font-bold tracking-tight;
+    @apply font-bold;
+    line-height: 1.2;
   }
 }
 
 @layer components {
-  .headline-xl {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  /* InfoMoney Typography */
+  .im-headline-hero {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-tight;
+    font-family: var(--font-display);
+    color: hsl(var(--foreground));
+  }
+
+  .im-headline-section {
+    @apply text-xl md:text-2xl font-bold;
     font-family: var(--font-display);
   }
 
-  .headline-lg {
-    @apply text-3xl md:text-4xl font-bold leading-tight;
+  .im-headline-card {
+    @apply text-base md:text-lg font-bold leading-snug;
     font-family: var(--font-display);
   }
 
-  .headline-md {
-    @apply text-xl md:text-2xl font-bold leading-snug;
-    font-family: var(--font-display);
+  .im-headline-list {
+    @apply text-sm font-semibold leading-snug;
+    font-family: var(--font-body);
   }
 
-  .headline-sm {
-    @apply text-lg font-semibold leading-snug;
-    font-family: var(--font-display);
-  }
-
-  .body-lg {
-    @apply text-lg leading-relaxed;
-  }
-
-  .body-md {
-    @apply text-base leading-relaxed;
-  }
-
-  .body-sm {
+  .im-body {
     @apply text-sm leading-relaxed;
+    font-family: var(--font-body);
   }
 
-  .text-accent-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-accent);
+  .im-caption {
+    @apply text-xs;
+    font-family: var(--font-body);
+    color: hsl(var(--im-gray-medium));
   }
 
-  .card-finance {
-    @apply bg-card border border-border rounded-lg;
-    box-shadow: var(--shadow-card);
-    transition: all 0.3s ease;
+  /* InfoMoney Section Title */
+  .im-section-title {
+    @apply text-sm font-bold uppercase tracking-wide pb-2 mb-4;
+    border-bottom: 3px solid hsl(var(--primary));
+    color: hsl(var(--foreground));
   }
 
-  .card-finance:hover {
-    box-shadow: var(--shadow-elevated);
-    @apply border-primary/30;
+  /* InfoMoney Cards */
+  .im-card {
+    @apply bg-card border-b border-border;
   }
 
-  .card-finance-featured {
-    background: var(--gradient-card);
-    @apply border border-primary/20 rounded-xl;
-    box-shadow: var(--shadow-glow);
+  .im-card-hover:hover .im-headline-card,
+  .im-card-hover:hover .im-headline-list {
+    color: hsl(var(--primary));
   }
 
-  .btn-finance {
-    @apply inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-all duration-300;
-    background: var(--gradient-accent);
-    @apply text-primary-foreground;
+  /* Category Badge InfoMoney Style */
+  .im-category {
+    @apply inline-block text-xs font-bold uppercase tracking-wide;
+    color: hsl(var(--primary));
   }
 
-  .btn-finance:hover {
-    @apply scale-105;
-    box-shadow: var(--shadow-glow);
+  /* Ticker Styles */
+  .im-ticker {
+    @apply bg-card border-b border-border;
   }
 
-  .link-finance {
-    @apply text-primary hover:text-primary/80 transition-colors duration-200 underline-offset-4 hover:underline;
+  .im-ticker-item {
+    @apply flex items-center gap-2 px-4 py-2 text-sm;
   }
 
-  .category-badge {
-    @apply inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary;
+  .im-ticker-up {
+    color: hsl(var(--im-green));
   }
 
-  .section-divider {
-    @apply w-full h-px bg-gradient-to-r from-transparent via-border to-transparent;
+  .im-ticker-down {
+    color: hsl(var(--im-red));
   }
 
+  /* Navigation InfoMoney Style */
+  .im-nav-link {
+    @apply text-sm font-semibold uppercase tracking-wide px-3 py-2;
+    color: hsl(var(--im-gray-medium));
+    transition: color 0.2s;
+  }
+
+  .im-nav-link:hover {
+    color: hsl(var(--primary));
+  }
+
+  /* InfoMoney Button */
+  .im-btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold rounded transition-all;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .im-btn-primary:hover {
+    background-color: hsl(var(--im-green-dark));
+  }
+
+  /* InfoMoney Link */
+  .im-link {
+    color: hsl(var(--primary));
+    @apply font-semibold hover:underline;
+  }
+
+  /* Divider */
+  .im-divider {
+    @apply w-full h-px bg-border;
+  }
+
+  /* Ad Container InfoMoney Style */
   .ad-container {
-    @apply bg-muted/30 border border-dashed border-border rounded-lg flex items-center justify-center min-h-[90px] text-muted-foreground text-sm;
+    @apply bg-muted border border-dashed border-border flex items-center justify-center text-muted-foreground text-xs;
+  }
+
+  /* Most Read List */
+  .im-most-read-number {
+    @apply text-3xl font-bold leading-none;
+    color: hsl(var(--im-gray-light));
+    font-family: var(--font-display);
+  }
+
+  /* Newsletter Box */
+  .im-newsletter-box {
+    @apply p-6;
+    background-color: hsl(var(--primary));
   }
 }
 
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
-  }
-
-  .animate-pulse-subtle {
-    animation: pulseSubtle 2s ease-in-out infinite;
+    animation: fadeIn 0.3s ease-out forwards;
   }
 
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulseSubtle {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
   }
 
   .line-clamp-2 {
@@ -220,6 +240,13 @@
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

@@ -36,8 +36,8 @@ const Search = () => {
 
       <div className="container py-8">
         <section className="mb-8">
-          <h1 className="headline-xl mb-4 flex items-center gap-4">
-            <SearchIcon className="h-10 w-10 text-primary" />
+          <h1 className="im-headline-hero mb-4 flex items-center gap-4">
+            <SearchIcon className="h-8 w-8 text-primary" />
             Resultados da Busca
           </h1>
 
@@ -53,9 +53,9 @@ const Search = () => {
         </section>
 
         {!query ? (
-          <div className="card-finance p-12 text-center">
+          <div className="bg-card border border-border rounded p-12 text-center">
             <SearchIcon className="h-16 w-16 text-muted-foreground/50 mx-auto mb-4" />
-            <h2 className="headline-md mb-2">Digite algo para buscar</h2>
+            <h2 className="im-headline-section mb-2">Digite algo para buscar</h2>
             <p className="text-muted-foreground">
               Use a barra de busca no cabeçalho para encontrar artigos.
             </p>

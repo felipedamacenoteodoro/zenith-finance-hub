@@ -9,12 +9,12 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 pb-24">{children}</main>
       <Footer />
       
-      {/* Sticky Footer Ad */}
+      {/* Sticky Footer Ad - Always visible at bottom */}
       <AdSpot position="sticky-bottom" zoneId="{{REVIVE_ZONE_STICKY_FOOTER}}" className="w-full" />
     </div>
   );

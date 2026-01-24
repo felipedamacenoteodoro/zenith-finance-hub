@@ -32,10 +32,10 @@ const Articles = () => {
 
       <div className="container py-8">
         <section className="mb-8">
-          <h1 className="headline-xl mb-4">
+          <h1 className="im-headline-hero mb-4">
             {category ? category : "Todos os Artigos"}
           </h1>
-          <p className="body-lg text-muted-foreground max-w-2xl">
+          <p className="im-body text-muted-foreground max-w-2xl">
             {category
               ? `Artigos sobre ${category.toLowerCase()} para manter você informado.`
               : "Explore nossa coleção completa de artigos sobre finanças e investimentos."}

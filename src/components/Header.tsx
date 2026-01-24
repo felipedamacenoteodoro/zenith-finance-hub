@@ -37,15 +37,15 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-card shadow-sm">
-      {/* Top Bar with Ad */}
+      {/* ========== AD ZONE: HEADER ========== */}
       <div className="border-b border-border">
-        <div className="container py-2">
-          <AdSpot position="header" zoneId="{{REVIVE_ZONE_HEADER}}" className="w-full min-h-[50px]" />
+        <div className="container py-3">
+          <AdSpot position="header" zoneId="{{REVIVE_ZONE_HEADER}}" className="w-full rounded" />
         </div>
       </div>
 
       {/* Market Ticker */}
-      <div className="im-ticker overflow-hidden">
+      <div className="im-ticker overflow-hidden border-b border-border">
         <div className="container">
           <div className="flex items-center gap-1 py-2 overflow-x-auto scrollbar-hide">
             {marketData.map((item, index) => (
@@ -54,9 +54,9 @@ export const Header = () => {
                 className="im-ticker-item flex-shrink-0"
                 data-bvx-track={`TICKER_${item.name}`}
               >
-                <span className="font-bold text-foreground">{item.name}</span>
-                <span className="text-muted-foreground">{item.value}</span>
-                <span className={`flex items-center gap-0.5 font-semibold ${item.up ? "im-ticker-up" : "im-ticker-down"}`}>
+                <span className="font-bold text-foreground text-sm">{item.name}</span>
+                <span className="text-muted-foreground text-sm">{item.value}</span>
+                <span className={`flex items-center gap-0.5 font-semibold text-sm ${item.up ? "im-ticker-up" : "im-ticker-down"}`}>
                   {item.up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
                   {item.change}
                 </span>

@@ -82,8 +82,8 @@ const Index = () => {
               )}
             </section>
 
-            {/* In-Article Ad 1 */}
-            <AdSpot position="in-content" zoneId="{{REVIVE_ZONE_INARTICLE_1}}" className="w-full min-h-[250px]" />
+            {/* ========== AD ZONE: IN-ARTICLE 1 ========== */}
+            <AdSpot position="in-content" zoneId="{{REVIVE_ZONE_INARTICLE_1}}" className="w-full" />
 
             {/* Investimentos Section */}
             <section>
@@ -119,8 +119,8 @@ const Index = () => {
               )}
             </section>
 
-            {/* In-Article Ad 2 */}
-            <AdSpot position="in-content" zoneId="{{REVIVE_ZONE_INARTICLE_2}}" className="w-full min-h-[250px]" />
+            {/* ========== AD ZONE: IN-ARTICLE 2 ========== */}
+            <AdSpot position="in-content" zoneId="{{REVIVE_ZONE_INARTICLE_2}}" className="w-full" />
 
             {/* Economia Section */}
             <section>

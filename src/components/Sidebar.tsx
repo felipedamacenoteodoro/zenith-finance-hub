@@ -17,8 +17,8 @@ export const Sidebar = () => {
 
   return (
     <aside className="space-y-6">
-      {/* Ad Spot Sidebar */}
-      <AdSpot position="sidebar" zoneId="{{REVIVE_ZONE_SIDEBAR}}" className="w-full min-h-[250px]" />
+      {/* ========== AD ZONE: SIDEBAR ========== */}
+      <AdSpot position="sidebar" zoneId="{{REVIVE_ZONE_SIDEBAR}}" className="w-full rounded" />
 
       {/* Most Read */}
       <div className="bg-card border border-border rounded p-4">
@@ -28,7 +28,7 @@ export const Sidebar = () => {
           <div className="space-y-4">
             {Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="animate-pulse flex gap-3">
-                <div className="im-most-read-number w-6">{i + 1}</div>
+                <div className="text-2xl font-bold text-muted w-6">{i + 1}</div>
                 <div className="flex-1 space-y-2">
                   <div className="h-3 bg-muted rounded w-full" />
                   <div className="h-3 bg-muted rounded w-2/3" />
@@ -45,7 +45,7 @@ export const Sidebar = () => {
                 className="flex gap-3 group py-2 border-b border-border last:border-0"
                 data-bvx-track="SIDEBAR_MOST_READ"
               >
-                <span className="im-most-read-number text-muted">{index + 1}</span>
+                <span className="text-2xl font-bold text-muted font-display">{index + 1}</span>
                 <div className="flex-1 min-w-0">
                   <h4 className="im-headline-list line-clamp-2 group-hover:text-primary transition-colors">
                     {article.title}
@@ -85,6 +85,9 @@ export const Sidebar = () => {
           ))}
         </div>
       </div>
+
+      {/* Second Sidebar Ad */}
+      <AdSpot position="sidebar" zoneId="{{REVIVE_ZONE_SIDEBAR_2}}" className="w-full rounded" />
     </aside>
   );
 };

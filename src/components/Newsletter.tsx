@@ -12,7 +12,6 @@ export const Newsletter = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Honeypot check - if filled, it's a bot
     if (honeypot) return;
 
     if (!NewsletterService.validateEmail(email)) {
@@ -37,29 +36,26 @@ export const Newsletter = () => {
   };
 
   return (
-    <div id="bvx-newsletter-base" className="card-finance-featured p-8 md:p-12">
+    <div id="bvx-newsletter-base" className="im-newsletter-box rounded">
       {/* BVX_NEWSLETTER_WIDGET */}
-      <div className="max-w-2xl mx-auto text-center">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-6">
-          <Mail className="h-8 w-8 text-primary" />
+      <div className="flex flex-col md:flex-row items-center gap-6">
+        <div className="flex items-center gap-4 text-primary-foreground">
+          <Mail className="h-10 w-10 flex-shrink-0" />
+          <div>
+            <h3 className="font-bold text-lg">Newsletter Gratuita</h3>
+            <p className="text-sm text-primary-foreground/80">
+              Receba as principais notícias do mercado no seu e-mail
+            </p>
+          </div>
         </div>
 
-        <h2 className="headline-lg mb-4">
-          Fique por dentro das novidades
-        </h2>
-
-        <p className="body-md text-muted-foreground mb-8">
-          Receba análises exclusivas, dicas de investimento e as principais notícias do mercado financeiro diretamente no seu email.
-        </p>
-
         {submitted ? (
-          <div className="flex items-center justify-center gap-3 text-primary animate-fade-in">
-            <CheckCircle className="h-6 w-6" />
-            <span className="font-semibold">Inscrição realizada com sucesso!</span>
+          <div className="flex items-center gap-2 text-primary-foreground animate-fade-in">
+            <CheckCircle className="h-5 w-5" />
+            <span className="font-semibold">Inscrição realizada!</span>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            {/* Honeypot - hidden from users */}
+          <form onSubmit={handleSubmit} className="flex-1 w-full md:w-auto">
             <input
               type="hidden"
               name="website_url"
@@ -69,42 +65,42 @@ export const Newsletter = () => {
               autoComplete="off"
             />
 
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Seu melhor e-mail"
-              className="flex-1 px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
-              disabled={loading}
-              data-bvx-track="NEWSLETTER_INPUT"
-            />
+            <div className="flex gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Digite seu e-mail"
+                className="flex-1 px-4 py-2.5 text-sm bg-white text-foreground rounded focus:outline-none focus:ring-2 focus:ring-white/50"
+                disabled={loading}
+                data-bvx-track="NEWSLETTER_INPUT"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="px-6 py-2.5 bg-foreground text-background font-bold text-sm rounded hover:bg-foreground/90 transition-colors disabled:opacity-50"
+                data-bvx-track="NEWSLETTER_SUBMIT"
+              >
+                {loading ? "..." : "Assinar"}
+              </button>
+            </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="btn-finance px-8 disabled:opacity-50 disabled:cursor-not-allowed"
-              data-bvx-track="NEWSLETTER_SUBMIT"
-            >
-              {loading ? "Enviando..." : "Assinar Grátis"}
-            </button>
+            {error && (
+              <div className="flex items-center gap-1 mt-2 text-sm text-white">
+                <AlertCircle className="h-4 w-4" />
+                {error}
+              </div>
+            )}
           </form>
         )}
-
-        {error && (
-          <div className="flex items-center justify-center gap-2 mt-4 text-destructive animate-fade-in">
-            <AlertCircle className="h-5 w-5" />
-            <span className="text-sm">{error}</span>
-          </div>
-        )}
-
-        <p className="text-xs text-muted-foreground mt-6">
-          Ao se inscrever, você concorda com nossa{" "}
-          <a href="/privacidade" className="link-finance" data-bvx-track="NEWSLETTER_PRIVACY_LINK">
-            Política de Privacidade
-          </a>
-          . Você pode cancelar a qualquer momento.
-        </p>
       </div>
+
+      <p className="text-xs text-primary-foreground/60 mt-4 text-center md:text-left">
+        Ao se inscrever, você concorda com nossa{" "}
+        <a href="/privacidade" className="underline hover:text-primary-foreground" data-bvx-track="NEWSLETTER_PRIVACY">
+          Política de Privacidade
+        </a>
+      </p>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { TrendingUp, ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { AdSpot } from "./AdSpot";
 import { ArticleService, Article } from "@/services/ArticleService";
 
@@ -16,47 +16,41 @@ export const Sidebar = () => {
   }, []);
 
   return (
-    <aside className="space-y-8">
+    <aside className="space-y-6">
       {/* Ad Spot Sidebar */}
-      <AdSpot position="sidebar" zoneId="{{REVIVE_ZONE_SIDEBAR}}" className="w-full" />
+      <AdSpot position="sidebar" zoneId="{{REVIVE_ZONE_SIDEBAR}}" className="w-full min-h-[250px]" />
 
-      {/* Recent Articles */}
-      <div className="card-finance p-6">
-        <h3 className="headline-sm mb-6 flex items-center gap-2">
-          <TrendingUp className="h-5 w-5 text-primary" />
-          Mais Lidas
-        </h3>
+      {/* Most Read */}
+      <div className="bg-card border border-border rounded p-4">
+        <h3 className="im-section-title">Mais Lidas</h3>
 
         {loading ? (
           <div className="space-y-4">
             {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="animate-pulse">
-                <div className="h-4 bg-muted rounded w-full mb-2" />
-                <div className="h-3 bg-muted rounded w-3/4" />
+              <div key={i} className="animate-pulse flex gap-3">
+                <div className="im-most-read-number w-6">{i + 1}</div>
+                <div className="flex-1 space-y-2">
+                  <div className="h-3 bg-muted rounded w-full" />
+                  <div className="h-3 bg-muted rounded w-2/3" />
+                </div>
               </div>
             ))}
           </div>
         ) : recentArticles.length > 0 ? (
-          <div className="space-y-4">
+          <div className="space-y-3">
             {recentArticles.map((article, index) => (
               <Link
                 key={article.id}
                 to={`/artigos/${article.slug}`}
-                className="block group"
-                data-bvx-track="SIDEBAR_ARTICLE_CLICK"
+                className="flex gap-3 group py-2 border-b border-border last:border-0"
+                data-bvx-track="SIDEBAR_MOST_READ"
               >
-                <div className="flex gap-3">
-                  <span className="text-2xl font-bold text-muted-foreground/50 font-display">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                      {article.title}
-                    </h4>
-                    <span className="text-xs text-muted-foreground">
-                      {article.category}
-                    </span>
-                  </div>
+                <span className="im-most-read-number text-muted">{index + 1}</span>
+                <div className="flex-1 min-w-0">
+                  <h4 className="im-headline-list line-clamp-2 group-hover:text-primary transition-colors">
+                    {article.title}
+                  </h4>
+                  <span className="im-caption">{article.category}</span>
                 </div>
               </Link>
             ))}
@@ -67,30 +61,28 @@ export const Sidebar = () => {
 
         <Link
           to="/artigos"
-          className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+          className="mt-4 flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
           data-bvx-track="SIDEBAR_VIEW_ALL"
         >
           Ver todos os artigos
-          <ArrowRight className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4" />
         </Link>
       </div>
 
       {/* Categories */}
-      <div className="card-finance p-6">
-        <h3 className="headline-sm mb-6">Categorias</h3>
+      <div className="bg-card border border-border rounded p-4">
+        <h3 className="im-section-title">Categorias</h3>
         <div className="flex flex-wrap gap-2">
-          {["Investimentos", "Mercado", "Economia", "Finanças Pessoais", "Criptomoedas"].map(
-            (category) => (
-              <Link
-                key={category}
-                to={`/artigos?categoria=${encodeURIComponent(category)}`}
-                className="category-badge hover:bg-primary/20 transition-colors"
-                data-bvx-track={`SIDEBAR_CATEGORY_${category.toUpperCase()}`}
-              >
-                {category}
-              </Link>
-            )
-          )}
+          {["Mercados", "Investimentos", "Economia", "Negócios", "Finanças Pessoais"].map((category) => (
+            <Link
+              key={category}
+              to={`/artigos?categoria=${encodeURIComponent(category.toLowerCase())}`}
+              className="px-3 py-1.5 text-xs font-medium bg-muted text-muted-foreground rounded hover:bg-primary hover:text-primary-foreground transition-colors"
+              data-bvx-track={`SIDEBAR_CAT_${category.toUpperCase()}`}
+            >
+              {category}
+            </Link>
+          ))}
         </div>
       </div>
     </aside>

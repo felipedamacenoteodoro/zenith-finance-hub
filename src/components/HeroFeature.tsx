@@ -4,26 +4,37 @@ import { ArticleService, Article } from "@/services/ArticleService";
 
 export const HeroFeature = () => {
   const [featuredArticle, setFeaturedArticle] = useState<Article | null>(null);
+  const [secondaryArticles, setSecondaryArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    ArticleService.getFeaturedArticle()
-      .then((article) => setFeaturedArticle(article))
-      .catch(() => setFeaturedArticle(null))
+    Promise.all([
+      ArticleService.getFeaturedArticle(),
+      ArticleService.getArticles({ page: 1, limit: 4 })
+    ])
+      .then(([featured, articles]) => {
+        setFeaturedArticle(featured);
+        setSecondaryArticles(articles?.slice(0, 3) || []);
+      })
+      .catch(() => {
+        setFeaturedArticle(null);
+        setSecondaryArticles([]);
+      })
       .finally(() => setLoading(false));
   }, []);
 
   if (loading) {
     return (
-      <div id="bvx-hero-feature" className="card-finance-featured overflow-hidden animate-pulse">
+      <div id="bvx-hero-feature" className="animate-pulse">
         {/* BVX_CONTENT_FEATURE */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="aspect-video md:aspect-auto bg-muted rounded-lg" />
-          <div className="flex flex-col justify-center p-6 space-y-4">
-            <div className="h-6 bg-muted rounded w-24" />
-            <div className="h-10 bg-muted rounded w-full" />
-            <div className="h-4 bg-muted rounded w-3/4" />
-            <div className="h-4 bg-muted rounded w-1/2" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <div className="aspect-[16/9] bg-muted rounded" />
+          </div>
+          <div className="space-y-4">
+            <div className="h-24 bg-muted rounded" />
+            <div className="h-24 bg-muted rounded" />
+            <div className="h-24 bg-muted rounded" />
           </div>
         </div>
       </div>
@@ -32,12 +43,10 @@ export const HeroFeature = () => {
 
   if (!featuredArticle) {
     return (
-      <div id="bvx-hero-feature" className="card-finance-featured p-12 text-center">
+      <div id="bvx-hero-feature" className="bg-muted rounded p-8 text-center">
         {/* BVX_CONTENT_FEATURE */}
-        <h2 className="headline-lg mb-4">Bem-vindo ao {"{{PROJECT_NAME}}"}</h2>
-        <p className="body-md text-muted-foreground">
-          Seu portal de notícias e análises do mercado financeiro.
-        </p>
+        <h2 className="im-headline-section mb-2">Bem-vindo ao {"{{PROJECT_NAME}}"}</h2>
+        <p className="text-muted-foreground">Seu portal de notícias e análises do mercado financeiro.</p>
       </div>
     );
   }
@@ -45,7 +54,20 @@ export const HeroFeature = () => {
   return (
     <div id="bvx-hero-feature">
       {/* BVX_CONTENT_FEATURE */}
-      <ArticleCard article={featuredArticle} featured />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Main Featured */}
+        <div className="lg:col-span-2">
+          <ArticleCard article={featuredArticle} variant="featured" />
+        </div>
+
+        {/* Secondary Articles */}
+        <div className="space-y-4">
+          <h2 className="im-section-title">Destaques</h2>
+          {secondaryArticles.map((article) => (
+            <ArticleCard key={article.id} article={article} variant="list" />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

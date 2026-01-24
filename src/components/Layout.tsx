@@ -1,0 +1,21 @@
+import { ReactNode } from "react";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { AdSpot } from "./AdSpot";
+
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export const Layout = ({ children }: LayoutProps) => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+      
+      {/* Sticky Footer Ad */}
+      <AdSpot position="sticky-bottom" zoneId="{{REVIVE_ZONE_STICKY_FOOTER}}" className="w-full" />
+    </div>
+  );
+};

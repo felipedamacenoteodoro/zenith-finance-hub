@@ -1,55 +1,54 @@
-interface SubscribeParams {
+/**
+ * NewsletterService - Este arquivo será SUBSTITUÍDO pelo do base-site durante scaffold
+ * 
+ * Mantido aqui apenas para garantir que os imports funcionem durante desenvolvimento.
+ * O arquivo real será copiado de server/templates/base-site/src/services/NewsletterService.ts
+ * 
+ * O NewsletterService do base-site já inclui:
+ * - websiteId: config.siteId (necessário para tracking)
+ * - website_url: '' (honeypot field)
+ */
+
+// config será SUBSTITUÍDO pelo do base-site durante scaffold
+import { config } from "@/lib/config";
+
+export interface NewsletterSubscription {
   email: string;
+  name?: string;
   source?: string;
 }
 
-interface SubscribeResponse {
+export interface NewsletterResponse {
   success: boolean;
   message: string;
 }
 
-const API_URL = "{{CONTENT_API_URL}}";
+// Versão temporária - será substituída pelo base-site
+class NewsletterServiceClass {
+  private static instance: NewsletterServiceClass;
 
-export const NewsletterService = {
-  validateEmail(email: string): boolean {
+  private constructor() {}
+
+  public static getInstance(): NewsletterServiceClass {
+    if (!NewsletterServiceClass.instance) {
+      NewsletterServiceClass.instance = new NewsletterServiceClass();
+    }
+    return NewsletterServiceClass.instance;
+  }
+
+  public async subscribe(data: NewsletterSubscription): Promise<NewsletterResponse> {
+    // Este método será substituído pelo do base-site
+    // O base-site já envia websiteId e website_url corretamente
+    return {
+      success: false,
+      message: "NewsletterService será substituído durante scaffold",
+    };
+  }
+
+  public validateEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
-  },
+  }
+}
 
-  async subscribe(params: SubscribeParams): Promise<SubscribeResponse> {
-    const { email, source = "website" } = params;
-
-    if (!this.validateEmail(email)) {
-      return {
-        success: false,
-        message: "Por favor, insira um email válido.",
-      };
-    }
-
-    try {
-      const response = await fetch(`${API_URL}/newsletter/subscribe`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, source }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || "Falha ao realizar inscrição");
-      }
-
-      return {
-        success: true,
-        message: "Inscrição realizada com sucesso!",
-      };
-    } catch (error) {
-      console.error("NewsletterService.subscribe error:", error);
-      return {
-        success: false,
-        message: error instanceof Error ? error.message : "Erro ao processar inscrição. Tente novamente.",
-      };
-    }
-  },
-};
+export const NewsletterService = NewsletterServiceClass.getInstance();

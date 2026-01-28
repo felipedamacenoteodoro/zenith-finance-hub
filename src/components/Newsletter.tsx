@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Mail, CheckCircle, AlertCircle } from "lucide-react";
 import { NewsletterService } from "@/services/NewsletterService";
+import { useTranslation } from "@/lib/i18n";
 
 export const Newsletter = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [loading, setLoading] = useState(false);
@@ -15,7 +17,7 @@ export const Newsletter = () => {
     if (honeypot) return;
 
     if (!NewsletterService.validateEmail(email)) {
-      setError("Por favor, insira um email válido.");
+      setError(t("common.error") + ": " + t("home.newsletter.error"));
       return;
     }
 
@@ -42,9 +44,9 @@ export const Newsletter = () => {
         <div className="flex items-center gap-4 text-primary-foreground">
           <Mail className="h-10 w-10 flex-shrink-0" />
           <div>
-            <h3 className="font-bold text-lg">Newsletter Gratuita</h3>
+            <h3 className="font-bold text-lg">{t("home.newsletter.title")}</h3>
             <p className="text-sm text-primary-foreground/80">
-              Receba as principais notícias do mercado no seu e-mail
+              {t("home.newsletter.description")}
             </p>
           </div>
         </div>
@@ -52,7 +54,7 @@ export const Newsletter = () => {
         {submitted ? (
           <div className="flex items-center gap-2 text-primary-foreground animate-fade-in">
             <CheckCircle className="h-5 w-5" />
-            <span className="font-semibold">Inscrição realizada!</span>
+            <span className="font-semibold">{t("home.newsletter.success")}</span>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex-1 w-full md:w-auto">
@@ -70,7 +72,7 @@ export const Newsletter = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Digite seu e-mail"
+                placeholder={t("home.newsletter.placeholder")}
                 className="flex-1 px-4 py-2.5 text-sm bg-white text-foreground rounded focus:outline-none focus:ring-2 focus:ring-white/50"
                 disabled={loading}
                 data-bvx-track="NEWSLETTER_INPUT"
@@ -81,7 +83,7 @@ export const Newsletter = () => {
                 className="px-6 py-2.5 bg-foreground text-background font-bold text-sm rounded hover:bg-foreground/90 transition-colors disabled:opacity-50"
                 data-bvx-track="NEWSLETTER_SUBMIT"
               >
-                {loading ? "..." : "Assinar"}
+                {loading ? "..." : t("home.newsletter.button")}
               </button>
             </div>
 
@@ -96,9 +98,9 @@ export const Newsletter = () => {
       </div>
 
       <p className="text-xs text-primary-foreground/60 mt-4 text-center md:text-left">
-        Ao se inscrever, você concorda com nossa{" "}
+        {t("home.newsletter.privacy")}{" "}
         <a href="/privacidade" className="underline hover:text-primary-foreground" data-bvx-track="NEWSLETTER_PRIVACY">
-          Política de Privacidade
+          {t("home.newsletter.privacyLink")}
         </a>
       </p>
     </div>

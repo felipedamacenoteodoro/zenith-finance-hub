@@ -2,6 +2,8 @@ import { Calculator, PieChart, TrendingUp, Wallet, Target, BarChart3 } from "luc
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
 import { AdSpot } from "@/components/AdSpot";
+// trackToolUsed será SUBSTITUÍDO pelo do base-site durante scaffold
+import { trackToolUsed } from "@/hooks/useToolTracking";
 
 const tools = [
   {
@@ -90,6 +92,17 @@ const Tools = () => {
                     : "bg-muted text-muted-foreground cursor-not-allowed"
                 }`}
                 disabled={!tool.available}
+                onClick={() => {
+                  if (tool.available) {
+                    // Rastrear uso da ferramenta (função será copiada do base-site)
+                    trackToolUsed(
+                      tool.title.toLowerCase().replace(/\s/g, "_"),
+                      "calculator",
+                      "finance",
+                      `/ferramentas/${tool.title.toLowerCase().replace(/\s/g, "-")}`
+                    );
+                  }
+                }}
                 data-bvx-track={`TOOL_${tool.title.toUpperCase().replace(/\s/g, "_")}`}
               >
                 {tool.available ? "Acessar" : "Disponível em breve"}

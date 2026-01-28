@@ -17,7 +17,7 @@ export const ArticleCard = ({ article, variant = "medium" }: ArticleCardProps) =
   if (variant === "featured") {
     return (
       <article className="group">
-        <Link to={`/artigos/${article.slug}`} className="block" data-bvx-track="ARTICLE_FEATURED_CLICK">
+        <Link to={`/artigo/${article.slug}`} className="block" data-bvx-track="ARTICLE_FEATURED_CLICK">
           <div className="relative aspect-[16/9] overflow-hidden rounded mb-4">
             <img
               src={article.imageUrl}
@@ -47,7 +47,7 @@ export const ArticleCard = ({ article, variant = "medium" }: ArticleCardProps) =
   if (variant === "medium") {
     return (
       <article className="im-card im-card-hover group pb-4">
-        <Link to={`/artigos/${article.slug}`} className="block" data-bvx-track="ARTICLE_CARD_CLICK">
+        <Link to={`/artigo/${article.slug}`} className="block" data-bvx-track="ARTICLE_CARD_CLICK">
           <div className="aspect-[16/10] overflow-hidden rounded mb-3">
             <img
               src={article.imageUrl}
@@ -75,7 +75,7 @@ export const ArticleCard = ({ article, variant = "medium" }: ArticleCardProps) =
   if (variant === "small") {
     return (
       <article className="im-card im-card-hover group pb-3">
-        <Link to={`/artigos/${article.slug}`} className="flex gap-3" data-bvx-track="ARTICLE_SMALL_CLICK">
+        <Link to={`/artigo/${article.slug}`} className="flex gap-3" data-bvx-track="ARTICLE_SMALL_CLICK">
           <div className="w-24 h-16 flex-shrink-0 overflow-hidden rounded">
             <img
               src={article.imageUrl}
@@ -96,7 +96,7 @@ export const ArticleCard = ({ article, variant = "medium" }: ArticleCardProps) =
   // List - Text only, no image
   return (
     <article className="im-card im-card-hover group py-3 border-b border-border">
-      <Link to={`/artigos/${article.slug}`} className="block" data-bvx-track="ARTICLE_LIST_CLICK">
+      <Link to={`/artigo/${article.slug}`} className="block" data-bvx-track="ARTICLE_LIST_CLICK">
         <span className="im-category text-xs mb-1 inline-block">{article.category}</span>
         <h3 className="im-headline-list line-clamp-2 mb-1">{article.title}</h3>
         <span className="im-caption">{formattedDate}</span>

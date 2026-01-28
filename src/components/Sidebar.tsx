@@ -41,7 +41,7 @@ export const Sidebar = () => {
             {recentArticles.map((article, index) => (
               <Link
                 key={article.id}
-                to={`/artigos/${article.slug}`}
+                to={`/artigo/${article.slug}`}
                 className="flex gap-3 group py-2 border-b border-border last:border-0"
                 data-bvx-track="SIDEBAR_MOST_READ"
               >

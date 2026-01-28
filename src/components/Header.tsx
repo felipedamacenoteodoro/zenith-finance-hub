@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Search, Menu, X, TrendingUp, TrendingDown, ChevronRight } from "lucide-react";
 import { AdSpot } from "./AdSpot";
+import { useTranslation } from "@/lib/i18n";
 
 const marketData = [
   { name: "IBOV", value: "127.432", change: "+0,85%", up: true },
@@ -11,20 +12,21 @@ const marketData = [
   { name: "SELIC", value: "11,25%", change: "0,00%", up: true },
 ];
 
-const navCategories = [
-  { to: "/", label: "Início" },
-  { to: "/artigos?categoria=mercados", label: "Mercados" },
-  { to: "/artigos?categoria=investimentos", label: "Investimentos" },
-  { to: "/artigos?categoria=economia", label: "Economia" },
-  { to: "/artigos?categoria=negocios", label: "Negócios" },
-  { to: "/ferramentas", label: "Ferramentas" },
-];
-
 export const Header = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
+  const navCategories = [
+    { to: "/", label: t("nav.home") },
+    { to: "/artigos?categoria=mercados", label: "Mercados" },
+    { to: "/artigos?categoria=investimentos", label: "Investimentos" },
+    { to: "/artigos?categoria=economia", label: "Economia" },
+    { to: "/artigos?categoria=negocios", label: "Negócios" },
+    { to: "/ferramentas", label: t("nav.tools") },
+  ];
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -92,7 +94,7 @@ export const Header = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Buscar notícias, ações, fundos..."
+                  placeholder={t("common.search") + "..."}
                   className="w-full px-4 py-2 pr-10 text-sm bg-muted border border-border rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
                   data-bvx-track="SEARCH_INPUT"
                 />
@@ -130,7 +132,7 @@ export const Header = () => {
               className="hidden md:flex items-center gap-1 im-btn-primary"
               data-bvx-track="CTA_HEADER"
             >
-              Assine
+              {t("common.subscribe")}
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
@@ -163,7 +165,7 @@ export const Header = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Buscar..."
+              placeholder={t("common.search") + "..."}
               className="w-full px-4 py-2 pr-10 text-sm bg-muted border border-border rounded focus:outline-none focus:ring-1 focus:ring-primary"
               autoFocus
               data-bvx-track="SEARCH_MOBILE_INPUT"

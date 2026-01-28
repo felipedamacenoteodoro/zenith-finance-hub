@@ -1,0 +1,119 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "readMore": "Ler mais",
+    "readTime": "min de leitura",
+    "publishedAt": "Publicado em",
+    "category": "Categoria",
+    "tags": "Tags",
+    "share": "Compartilhar",
+    "subscribe": "Inscrever-se",
+    "subscribed": "Inscrito",
+    "email": "E-mail",
+    "name": "Nome",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "save": "Salvar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "confirm": "Confirmar"
+  },
+  "nav": {
+    "home": "Início",
+    "articles": "Artigos",
+    "tools": "Ferramentas",
+    "about": "Sobre",
+    "contact": "Contato",
+    "privacy": "Privacidade",
+    "terms": "Termos de Uso",
+    "sitemap": "Mapa do Site"
+  },
+  "home": {
+    "title": "Bem-vindo",
+    "subtitle": "Seu portal de conteúdo",
+    "featuredArticle": "Artigo em Destaque",
+    "recentArticles": "Artigos Recentes",
+    "viewAll": "Ver todos os artigos",
+    "newsletter": {
+      "title": "Newsletter Gratuita",
+      "description": "Receba as principais notícias do mercado no seu e-mail",
+      "placeholder": "Digite seu e-mail",
+      "button": "Assinar",
+      "success": "Inscrição realizada!",
+      "error": "Erro ao realizar inscrição",
+      "privacy": "Ao se inscrever, você concorda com nossa",
+      "privacyLink": "Política de Privacidade"
+    }
+  },
+  "articles": {
+    "title": "Artigos",
+    "allArticles": "Todos os Artigos",
+    "noArticles": "Nenhum artigo encontrado",
+    "loading": "Carregando artigos...",
+    "readMore": "Ler artigo completo",
+    "backToArticles": "Voltar para artigos"
+  },
+  "article": {
+    "notFound": "Artigo não encontrado",
+    "backToArticles": "Voltar para artigos",
+    "relatedArticles": "Artigos Relacionados",
+    "newsletter": {
+      "title": "Gostou do artigo?",
+      "description": "Inscreva-se para receber mais conteúdos como este."
+    }
+  },
+  "search": {
+    "title": "Busca",
+    "placeholder": "Digite algo para buscar",
+    "results": "Resultados da Busca",
+    "resultsFor": "Resultados para",
+    "noResults": "Nenhum resultado encontrado para",
+    "resultsCount": "resultado",
+    "resultsCountPlural": "resultados",
+    "startSearch": "Digite um termo de busca para começar",
+    "useSearchBar": "Use a barra de busca no cabeçalho para encontrar artigos."
+  },
+  "tools": {
+    "title": "Ferramentas",
+    "subtitle": "Utilize nossas ferramentas gratuitas para tomar decisões mais inteligentes.",
+    "availableSoon": "Disponível em breve",
+    "access": "Acessar"
+  },
+  "about": {
+    "title": "Sobre Nós",
+    "description": "Conheça nossa missão e valores"
+  },
+  "contact": {
+    "title": "Contato",
+    "description": "Entre em contato conosco",
+    "form": {
+      "name": "Nome",
+      "email": "E-mail",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "send": "Enviar Mensagem"
+    }
+  },
+  "footer": {
+    "description": "Seu portal de conteúdo de qualidade sobre o assunto que você mais gosta.",
+    "quickLinks": "Links Rápidos",
+    "legal": "Legal",
+    "copyright": "Todos os direitos reservados"
+  },
+  "errors": {
+    "404": {
+      "title": "404",
+      "message": "Página não encontrada",
+      "backHome": "Voltar para o início"
+    },
+    "generic": "Ocorreu um erro. Tente novamente mais tarde.",
+    "network": "Erro de conexão. Verifique sua internet."
+  }
+}

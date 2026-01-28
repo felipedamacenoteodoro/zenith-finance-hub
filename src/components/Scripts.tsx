@@ -1,40 +1,18 @@
 import { useEffect } from "react";
+// AnalyticsService será SUBSTITUÍDO pelo do base-site durante scaffold
+import { AnalyticsService } from "@/services/AnalyticsService";
+// AdService será SUBSTITUÍDO pelo do base-site durante scaffold
+import { AdService } from "@/services/AdService";
 
 export const Scripts = () => {
   useEffect(() => {
-    // PostHog initialization placeholder
-    const initPostHog = () => {
-      if (typeof window !== "undefined" && (window as any).posthog) {
-        (window as any).posthog.init("{{POSTHOG_KEY}}", {
-          api_host: "{{POSTHOG_HOST}}",
-          capture_pageview: true,
-          capture_pageleave: true,
-        });
-      }
-    };
+    // Inicializar Analytics (PostHog) - AnalyticsService será copiado do base-site
+    AnalyticsService?.initialize().catch((err: any) =>
+      console.warn("Failed to init analytics:", err)
+    );
 
-    // Revive Ads initialization placeholder
-    const initReviveAds = () => {
-      if (typeof window !== "undefined") {
-        const reviveScript = document.createElement("script");
-        reviveScript.src = "{{REVIVE_AD_SERVER}}/asyncjs.php";
-        reviveScript.async = true;
-        document.head.appendChild(reviveScript);
-      }
-    };
-
-    // Initialize tracking and ads
-    initPostHog();
-    initReviveAds();
-
-    // Track page views on route changes
-    const trackPageView = () => {
-      if (typeof window !== "undefined" && (window as any).posthog) {
-        (window as any).posthog.capture("$pageview");
-      }
-    };
-
-    trackPageView();
+    // Inicializar Revive Ads - AdService será copiado do base-site
+    AdService?.initialize();
 
     return () => {
       // Cleanup if needed

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "@/lib/i18n";
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -18,18 +20,18 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-background/70">
-              Seu portal de informações financeiras e análises de mercado.
+              {t("footer.description")}
             </p>
           </div>
 
           {/* Navegação */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wide mb-4 text-background">Navegação</h3>
+            <h3 className="font-bold text-sm uppercase tracking-wide mb-4 text-background">{t("footer.quickLinks")}</h3>
             <nav className="flex flex-col gap-2">
-              <Link to="/" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_HOME">Início</Link>
-              <Link to="/artigos" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_ARTICLES">Artigos</Link>
-              <Link to="/ferramentas" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_TOOLS">Ferramentas</Link>
-              <Link to="/busca" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_SEARCH">Busca</Link>
+              <Link to="/" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_HOME">{t("nav.home")}</Link>
+              <Link to="/artigos" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_ARTICLES">{t("nav.articles")}</Link>
+              <Link to="/ferramentas" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_TOOLS">{t("nav.tools")}</Link>
+              <Link to="/busca" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_SEARCH">{t("common.search")}</Link>
             </nav>
           </div>
 
@@ -37,18 +39,18 @@ export const Footer = () => {
           <div>
             <h3 className="font-bold text-sm uppercase tracking-wide mb-4 text-background">Institucional</h3>
             <nav className="flex flex-col gap-2">
-              <Link to="/sobre" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_ABOUT">Sobre Nós</Link>
-              <Link to="/contato" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_CONTACT">Contato</Link>
+              <Link to="/sobre" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_ABOUT">{t("nav.about")}</Link>
+              <Link to="/contato" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_CONTACT">{t("nav.contact")}</Link>
             </nav>
           </div>
 
           {/* Legal */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wide mb-4 text-background">Legal</h3>
+            <h3 className="font-bold text-sm uppercase tracking-wide mb-4 text-background">{t("footer.legal")}</h3>
             <nav className="flex flex-col gap-2">
-              <Link to="/privacidade" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_PRIVACY">Privacidade</Link>
-              <Link to="/termos" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_TERMS">Termos de Uso</Link>
-              <Link to="/sitemap" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_SITEMAP">Mapa do Site</Link>
+              <Link to="/privacidade" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_PRIVACY">{t("nav.privacy")}</Link>
+              <Link to="/termos" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_TERMS">{t("nav.terms")}</Link>
+              <Link to="/sitemap" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_SITEMAP">{t("nav.sitemap")}</Link>
             </nav>
           </div>
         </div>
@@ -61,7 +63,7 @@ export const Footer = () => {
             As informações fornecidas não constituem aconselhamento financeiro, de investimento ou jurídico.
           </p>
           <p className="text-xs text-background/50 text-center">
-            © {currentYear} {"{{PROJECT_NAME}}"}. Todos os direitos reservados.
+            © {currentYear} {"{{PROJECT_NAME}}"}. {t("footer.copyright")}.
           </p>
         </div>
       </div>

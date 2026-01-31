@@ -2,44 +2,44 @@ import { Calculator, PieChart, TrendingUp, Wallet, Target, BarChart3 } from "luc
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
 import { AdSpot } from "@/components/AdSpot";
-// trackToolUsed será SUBSTITUÍDO pelo do base-site durante scaffold
+// trackToolUsed will be REPLACED by the one from base-site during scaffold
 import { trackToolUsed } from "@/hooks/useToolTracking";
 
 const tools = [
   {
     icon: Calculator,
-    title: "Calculadora de Juros Compostos",
-    description: "Simule o crescimento do seu dinheiro ao longo do tempo com juros compostos.",
+    title: "Compound Interest Calculator",
+    description: "Simulate the growth of your money over time with compound interest.",
     available: false,
   },
   {
     icon: PieChart,
-    title: "Simulador de Investimentos",
-    description: "Compare diferentes tipos de investimentos e veja qual é o melhor para você.",
+    title: "Investment Simulator",
+    description: "Compare different types of investments and see which is best for you.",
     available: false,
   },
   {
     icon: TrendingUp,
-    title: "Análise de Ações",
-    description: "Acompanhe indicadores fundamentalistas e técnicos das principais ações.",
+    title: "Stock Analysis",
+    description: "Track fundamental and technical indicators of the main stocks.",
     available: false,
   },
   {
     icon: Wallet,
-    title: "Planejador de Orçamento",
-    description: "Organize suas finanças pessoais e controle seus gastos mensais.",
+    title: "Budget Planner",
+    description: "Organize your personal finances and control your monthly expenses.",
     available: false,
   },
   {
     icon: Target,
-    title: "Metas Financeiras",
-    description: "Defina e acompanhe suas metas de economia e investimento.",
+    title: "Financial Goals",
+    description: "Set and track your savings and investment goals.",
     available: false,
   },
   {
     icon: BarChart3,
-    title: "Comparador de Fundos",
-    description: "Compare rentabilidade, taxas e riscos de fundos de investimento.",
+    title: "Fund Comparator",
+    description: "Compare returns, fees and risks of investment funds.",
     available: false,
   },
 ];
@@ -48,16 +48,16 @@ const Tools = () => {
   return (
     <Layout>
       <SEO
-        title="Ferramentas Financeiras"
-        description="Utilize nossas ferramentas gratuitas para calcular juros, simular investimentos e planejar suas finanças pessoais."
+        title="Financial Tools"
+        description="Use our free tools to calculate interest, simulate investments and plan your personal finances."
       />
 
       <div className="container py-8">
         <section className="mb-12">
-          <h1 className="headline-xl mb-4">Ferramentas Financeiras</h1>
+          <h1 className="headline-xl mb-4">Financial Tools</h1>
           <p className="body-lg text-muted-foreground max-w-2xl">
-            Utilize nossas ferramentas gratuitas para tomar decisões financeiras mais inteligentes.
-            Calculadoras, simuladores e muito mais.
+            Use our free tools to make smarter financial decisions.
+            Calculators, simulators and more.
           </p>
         </section>
 
@@ -73,7 +73,7 @@ const Tools = () => {
               {!tool.available && (
                 <div className="absolute top-4 right-4">
                   <span className="text-xs font-semibold px-2 py-1 bg-muted rounded-full text-muted-foreground">
-                    Em breve
+                    Coming soon
                   </span>
                 </div>
               )}
@@ -94,18 +94,18 @@ const Tools = () => {
                 disabled={!tool.available}
                 onClick={() => {
                   if (tool.available) {
-                    // Rastrear uso da ferramenta (função será copiada do base-site)
+                    // Track tool usage (function will be copied from base-site)
                     trackToolUsed(
                       tool.title.toLowerCase().replace(/\s/g, "_"),
                       "calculator",
                       "finance",
-                      `/ferramentas/${tool.title.toLowerCase().replace(/\s/g, "-")}`
+                      `/tools/${tool.title.toLowerCase().replace(/\s/g, "-")}`
                     );
                   }
                 }}
                 data-bvx-track={`TOOL_${tool.title.toUpperCase().replace(/\s/g, "_")}`}
               >
-                {tool.available ? "Acessar" : "Disponível em breve"}
+                {tool.available ? "Access" : "Available soon"}
               </button>
             </div>
           ))}

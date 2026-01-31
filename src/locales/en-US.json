@@ -43,10 +43,10 @@
     "viewAll": "View all articles",
     "newsletter": {
       "title": "Free Newsletter",
-      "description": "Receive the latest market news in your email",
+      "description": "Get the latest market news in your inbox",
       "placeholder": "Enter your email",
       "button": "Subscribe",
-      "success": "Subscription successful!",
+      "success": "Successfully subscribed!",
       "error": "Error subscribing",
       "privacy": "By subscribing, you agree to our",
       "privacyLink": "Privacy Policy"
@@ -65,7 +65,7 @@
     "backToArticles": "Back to articles",
     "relatedArticles": "Related Articles",
     "newsletter": {
-      "title": "Did you like the article?",
+      "title": "Enjoyed the article?",
       "description": "Subscribe to receive more content like this."
     }
   },
@@ -77,7 +77,7 @@
     "noResults": "No results found for",
     "resultsCount": "result",
     "resultsCountPlural": "results",
-    "startSearch": "Enter a search term to start",
+    "startSearch": "Enter a search term to begin",
     "useSearchBar": "Use the search bar in the header to find articles."
   },
   "tools": {
@@ -102,7 +102,7 @@
     }
   },
   "footer": {
-    "description": "Your quality content portal about the topics you love most.",
+    "description": "Your quality content portal about the topics you love.",
     "quickLinks": "Quick Links",
     "legal": "Legal",
     "copyright": "All rights reserved"

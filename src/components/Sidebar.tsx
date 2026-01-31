@@ -22,7 +22,7 @@ export const Sidebar = () => {
 
       {/* Most Read */}
       <div className="bg-card border border-border rounded p-4">
-        <h3 className="im-section-title">Mais Lidas</h3>
+        <h3 className="im-section-title">Most Read</h3>
 
         {loading ? (
           <div className="space-y-4">
@@ -56,7 +56,7 @@ export const Sidebar = () => {
             ))}
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground">Nenhum artigo disponível.</p>
+          <p className="text-sm text-muted-foreground">No articles available.</p>
         )}
 
         <Link
@@ -64,19 +64,19 @@ export const Sidebar = () => {
           className="mt-4 flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
           data-bvx-track="SIDEBAR_VIEW_ALL"
         >
-          Ver todos os artigos
+          View all articles
           <ChevronRight className="h-4 w-4" />
         </Link>
       </div>
 
       {/* Categories */}
       <div className="bg-card border border-border rounded p-4">
-        <h3 className="im-section-title">Categorias</h3>
+        <h3 className="im-section-title">Categories</h3>
         <div className="flex flex-wrap gap-2">
-          {["Mercados", "Investimentos", "Economia", "Negócios", "Finanças Pessoais"].map((category) => (
+          {["Markets", "Investments", "Economy", "Business", "Personal Finance"].map((category) => (
             <Link
               key={category}
-              to={`/artigos?categoria=${encodeURIComponent(category.toLowerCase())}`}
+              to={`/artigos?category=${encodeURIComponent(category.toLowerCase())}`}
               className="px-3 py-1.5 text-xs font-medium bg-muted text-muted-foreground rounded hover:bg-primary hover:text-primary-foreground transition-colors"
               data-bvx-track={`SIDEBAR_CAT_${category.toUpperCase()}`}
             >

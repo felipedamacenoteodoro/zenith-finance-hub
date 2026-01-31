@@ -1,6 +1,6 @@
 /**
- * STUB - Este arquivo será SUBSTITUÍDO pelo do base-site durante scaffold
- * Mantido aqui apenas para garantir que os imports funcionem durante desenvolvimento local
+ * STUB - This file will be REPLACED by the one from base-site during scaffold
+ * Kept here only to ensure imports work during local development
  */
 
 export function trackToolUsed(
@@ -9,6 +9,6 @@ export function trackToolUsed(
   toolCategory: string = 'general',
   toolLocation?: string
 ): void {
-  // Stub - implementação real será copiada do base-site
-  // No-op durante desenvolvimento
+  // Stub - real implementation will be copied from base-site
+  // No-op during development
 }

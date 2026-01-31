@@ -1,6 +1,6 @@
 /**
- * STUB - Este arquivo será SUBSTITUÍDO pelo do base-site durante scaffold
- * Mantido aqui apenas para garantir que os imports funcionem durante desenvolvimento local
+ * STUB - This file will be REPLACED by the one from base-site during scaffold
+ * Kept here only to ensure imports work during local development
  */
 
 export function useScrollDepth(
@@ -9,8 +9,8 @@ export function useScrollDepth(
   enabled: boolean = true,
   threshold: number = 50
 ): void {
-  // Stub - implementação real será copiada do base-site
+  // Stub - real implementation will be copied from base-site
   if (typeof window !== 'undefined' && enabled) {
-    // No-op durante desenvolvimento
+    // No-op during development
   }
 }

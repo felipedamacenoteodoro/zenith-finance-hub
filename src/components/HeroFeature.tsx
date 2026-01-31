@@ -45,8 +45,8 @@ export const HeroFeature = () => {
     return (
       <div id="bvx-hero-feature" className="bg-muted rounded p-8 text-center">
         {/* BVX_CONTENT_FEATURE */}
-        <h2 className="im-headline-section mb-2">Bem-vindo ao {"{{PROJECT_NAME}}"}</h2>
-        <p className="text-muted-foreground">Seu portal de notícias e análises do mercado financeiro.</p>
+        <h2 className="im-headline-section mb-2">Welcome to {"{{PROJECT_NAME}}"}</h2>
+        <p className="text-muted-foreground">Your portal for financial market news and analysis.</p>
       </div>
     );
   }
@@ -62,7 +62,7 @@ export const HeroFeature = () => {
 
         {/* Secondary Articles */}
         <div className="space-y-4">
-          <h2 className="im-section-title">Destaques</h2>
+          <h2 className="im-section-title">Highlights</h2>
           {secondaryArticles.map((article) => (
             <ArticleCard key={article.id} article={article} variant="list" />
           ))}

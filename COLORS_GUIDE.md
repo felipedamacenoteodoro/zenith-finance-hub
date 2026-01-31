@@ -1,54 +1,54 @@
-# Guia de Cores - Sistema de Personalização
+# Colors Guide - Customization System
 
-Este template usa um sistema centralizado de cores que facilita a personalização pelo LangChain baseado no nicho/domínio.
+This template uses a centralized color system that makes customization easy for LangChain based on the niche/domain.
 
-## Arquivo Principal
+## Main File
 
-**`src/lib/color-config.ts`** - Este é o arquivo que o LangChain deve modificar para personalizar as cores.
+**`src/lib/color-config.ts`** - This is the file LangChain should modify to customize colors.
 
-## Estrutura do Arquivo
+## File Structure
 
-O arquivo contém:
+The file contains:
 
-1. **Interface `ColorConfig`**: Define todas as cores disponíveis
-2. **`defaultColorConfig`**: Configuração padrão (azul para finanças)
-3. **`colorSchemesByNiche`**: Esquemas pré-definidos por nicho
-4. **Funções auxiliares**: Para gerar CSS e converter cores
+1. **`ColorConfig` Interface**: Defines all available colors
+2. **`defaultColorConfig`**: Default configuration (blue for finance)
+3. **`colorSchemesByNiche`**: Pre-defined schemes by niche
+4. **Helper functions**: To generate CSS and convert colors
 
-## Como o LangChain Deve Modificar
+## How LangChain Should Modify
 
-### Opção 1: Usar Esquema Pré-definido
+### Option 1: Use Pre-defined Scheme
 
-Se o nicho tiver um esquema pré-definido, apenas adicionar no `.env`:
+If the niche has a pre-defined scheme, just add to `.env`:
 ```
 VITE_COLOR_NICHE=health
 ```
 
-### Opção 2: Modificar o Arquivo Diretamente
+### Option 2: Modify the File Directly
 
-Editar `src/lib/color-config.ts` e modificar o objeto `defaultColorConfig`:
+Edit `src/lib/color-config.ts` and modify the `defaultColorConfig` object:
 
 ```typescript
 export const defaultColorConfig: ColorConfig = {
-  // Mudar apenas as cores necessárias
-  primary: '#10b981', // Verde para saúde
+  // Change only the necessary colors
+  primary: '#10b981', // Green for health
   primaryHover: '#059669',
   primaryLight: '#34d399',
   primaryDark: '#047857',
-  // ... resto permanece igual
+  // ... rest remains the same
 };
 ```
 
-### Opção 3: Criar Novo Esquema
+### Option 3: Create New Scheme
 
-Adicionar um novo esquema em `colorSchemesByNiche`:
+Add a new scheme in `colorSchemesByNiche`:
 
 ```typescript
 export const colorSchemesByNiche: Record<string, Partial<ColorConfig>> = {
-  // ... esquemas existentes
-  
-  meuNicho: {
-    primary: '#8b5cf6', // Roxo
+  // ... existing schemes
+
+  myNiche: {
+    primary: '#8b5cf6', // Purple
     primaryHover: '#7c3aed',
     primaryLight: '#a78bfa',
     primaryDark: '#6d28d9',
@@ -56,89 +56,89 @@ export const colorSchemesByNiche: Record<string, Partial<ColorConfig>> = {
 };
 ```
 
-## Cores Disponíveis
+## Available Colors
 
-### Cores Primárias (Obrigatórias)
-- `primary`: Cor principal do site
-- `primaryForeground`: Texto sobre primary
-- `primaryHover`: Cor no hover
-- `primaryLight`: Versão clara
-- `primaryDark`: Versão escura
+### Primary Colors (Required)
+- `primary`: Main site color
+- `primaryForeground`: Text on primary
+- `primaryHover`: Hover color
+- `primaryLight`: Light version
+- `primaryDark`: Dark version
 
-### Cores Secundárias
-- `secondary`: Cor secundária
-- `secondaryForeground`: Texto sobre secondary
-- `secondaryHover`: Cor no hover
+### Secondary Colors
+- `secondary`: Secondary color
+- `secondaryForeground`: Text on secondary
+- `secondaryHover`: Hover color
 
-### Cores de Fundo
-- `background`: Fundo principal
-- `backgroundCard`: Fundo de cards
-- `backgroundMuted`: Fundo suave
-- `backgroundAccent`: Fundo de destaque
+### Background Colors
+- `background`: Main background
+- `backgroundCard`: Card background
+- `backgroundMuted`: Soft background
+- `backgroundAccent`: Accent background
 
-### Cores de Texto
-- `foreground`: Texto principal
-- `foregroundMuted`: Texto secundário
-- `foregroundSubtle`: Texto sutil
+### Text Colors
+- `foreground`: Main text
+- `foregroundMuted`: Secondary text
+- `foregroundSubtle`: Subtle text
 
-### Cores de Estado
-- `success`: Verde para sucesso
-- `warning`: Amarelo para avisos
-- `error`: Vermelho para erros
-- `info`: Azul para informações
+### State Colors
+- `success`: Green for success
+- `warning`: Yellow for warnings
+- `error`: Red for errors
+- `info`: Blue for information
 
-### Cores de Borda
-- `border`: Borda padrão
-- `borderLight`: Borda clara
-- `borderDark`: Borda escura
+### Border Colors
+- `border`: Default border
+- `borderLight`: Light border
+- `borderDark`: Dark border
 
-### Cores de Input
-- `inputBackground`: Fundo do input
-- `inputBorder`: Borda do input
-- `inputFocus`: Cor do foco
-- `inputPlaceholder`: Cor do placeholder
+### Input Colors
+- `inputBackground`: Input background
+- `inputBorder`: Input border
+- `inputFocus`: Focus color
+- `inputPlaceholder`: Placeholder color
 
-## Esquemas Pré-definidos
+## Pre-defined Schemes
 
-- `health`: Verde (#10b981)
-- `technology`: Roxo (#8b5cf6)
-- `education`: Laranja (#f59e0b)
-- `fashion`: Rosa (#ec4899)
-- `sports`: Vermelho (#ef4444)
-- `food`: Laranja (#f97316)
-- `news`: Azul escuro (#1e40af)
+- `health`: Green (#10b981)
+- `technology`: Purple (#8b5cf6)
+- `education`: Orange (#f59e0b)
+- `fashion`: Pink (#ec4899)
+- `sports`: Red (#ef4444)
+- `food`: Orange (#f97316)
+- `news`: Dark blue (#1e40af)
 
-## Formato de Cores
+## Color Format
 
-Todas as cores devem estar em formato hexadecimal:
-- ✅ Correto: `'#2563eb'`
-- ❌ Incorreto: `'rgb(37, 99, 235)'` ou `'blue'`
+All colors should be in hexadecimal format:
+- Correct: `'#2563eb'`
+- Incorrect: `'rgb(37, 99, 235)'` or `'blue'`
 
-## Exemplo de Prompt para LangChain
+## Example Prompt for LangChain
 
 ```
-Modifique o arquivo src/lib/color-config.ts para personalizar as cores do site.
+Modify the file src/lib/color-config.ts to customize the site colors.
 
-NICHO: Saúde/Health
-COR PRINCIPAL: Verde (#10b981)
+NICHE: Health
+PRIMARY COLOR: Green (#10b981)
 
-Ações:
-1. Atualize o objeto defaultColorConfig com:
+Actions:
+1. Update the defaultColorConfig object with:
    - primary: '#10b981'
    - primaryHover: '#059669'
    - primaryLight: '#34d399'
    - primaryDark: '#047857'
 
-2. Mantenha todas as outras cores inalteradas.
+2. Keep all other colors unchanged.
 ```
 
-## Integração com Tailwind
+## Tailwind Integration
 
-As cores são automaticamente convertidas para HSL e injetadas como variáveis CSS que o Tailwind usa. Não é necessário modificar o `tailwind.config.ts` ou `index.css` diretamente.
+Colors are automatically converted to HSL and injected as CSS variables that Tailwind uses. There's no need to modify `tailwind.config.ts` or `index.css` directly.
 
-## Verificação
+## Verification
 
-Após modificar as cores:
-1. ✅ Verifique se todas as cores estão em formato hexadecimal
-2. ✅ Teste se o site carrega sem erros
-3. ✅ Verifique se as cores aparecem corretamente nos componentes
+After modifying colors:
+1. Check if all colors are in hexadecimal format
+2. Test if the site loads without errors
+3. Verify if colors appear correctly in components

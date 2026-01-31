@@ -5,27 +5,27 @@ import { Layout } from "@/components/Layout";
 
 const sitemapSections = [
   {
-    title: "Páginas Principais",
+    title: "Main Pages",
     links: [
-      { to: "/", label: "Página Inicial", icon: Home },
-      { to: "/artigos", label: "Artigos", icon: FileText },
-      { to: "/ferramentas", label: "Ferramentas", icon: Wrench },
-      { to: "/busca", label: "Busca", icon: Search },
+      { to: "/", label: "Home", icon: Home },
+      { to: "/artigos", label: "Articles", icon: FileText },
+      { to: "/ferramentas", label: "Tools", icon: Wrench },
+      { to: "/busca", label: "Search", icon: Search },
     ],
   },
   {
-    title: "Institucional",
+    title: "Institutional",
     links: [
-      { to: "/sobre", label: "Sobre Nós", icon: Users },
-      { to: "/contato", label: "Contato", icon: Mail },
+      { to: "/sobre", label: "About Us", icon: Users },
+      { to: "/contato", label: "Contact", icon: Mail },
     ],
   },
   {
     title: "Legal",
     links: [
-      { to: "/privacidade", label: "Política de Privacidade", icon: Shield },
-      { to: "/termos", label: "Termos de Uso", icon: Scale },
-      { to: "/sitemap", label: "Mapa do Site", icon: Map },
+      { to: "/privacidade", label: "Privacy Policy", icon: Shield },
+      { to: "/termos", label: "Terms of Use", icon: Scale },
+      { to: "/sitemap", label: "Sitemap", icon: Map },
     ],
   },
 ];
@@ -34,15 +34,15 @@ const Sitemap = () => {
   return (
     <Layout>
       <SEO
-        title="Mapa do Site"
-        description="Navegue por todas as páginas do {{PROJECT_NAME}}. Encontre facilmente artigos, ferramentas e informações."
+        title="Sitemap"
+        description="Navigate through all pages of {{PROJECT_NAME}}. Easily find articles, tools and information."
       />
 
       <div className="container py-8 max-w-4xl">
         <section className="text-center mb-12">
-          <h1 className="headline-xl mb-4">Mapa do Site</h1>
+          <h1 className="headline-xl mb-4">Sitemap</h1>
           <p className="body-lg text-muted-foreground">
-            Encontre todas as páginas do {"{{PROJECT_NAME}}"} organizadas por categoria.
+            Find all pages of {"{{PROJECT_NAME}}"} organized by category.
           </p>
         </section>
 
@@ -70,9 +70,9 @@ const Sitemap = () => {
         {/* Feed Link */}
         <section className="mt-12">
           <div className="card-finance p-6 text-center">
-            <h2 className="headline-sm mb-4">Feed de Artigos</h2>
+            <h2 className="headline-sm mb-4">Article Feed</h2>
             <p className="body-sm text-muted-foreground mb-4">
-              Acesse nosso feed de artigos para integração com leitores RSS ou aplicativos.
+              Access our article feed for integration with RSS readers or applications.
             </p>
             <a
               href="{{CONTENT_API_URL}}/feed/rss"
@@ -90,8 +90,8 @@ const Sitemap = () => {
         <section className="mt-8">
           <div className="p-6 bg-muted/30 rounded-lg border border-border">
             <p className="text-sm text-muted-foreground text-center">
-              O site pode incluir erros técnicos, tipográficos ou fotográficos. 
-              Não garantimos que qualquer material no site seja preciso, completo ou atual.
+              The site may include technical, typographical or photographic errors.
+              We do not guarantee that any material on the site is accurate, complete or current.
             </p>
           </div>
         </section>

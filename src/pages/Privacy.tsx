@@ -5,148 +5,148 @@ const Privacy = () => {
   return (
     <Layout>
       <SEO
-        title="Política de Privacidade"
-        description="Conheça nossa política de privacidade e saiba como tratamos seus dados pessoais no {{PROJECT_NAME}}."
+        title="Privacy Policy"
+        description="Learn about our privacy policy and how we handle your personal data at {{PROJECT_NAME}}."
       />
 
       <div className="container py-8 max-w-4xl">
-        <h1 className="headline-xl mb-8">Política de Privacidade</h1>
+        <h1 className="headline-xl mb-8">Privacy Policy</h1>
 
         <div className="prose prose-invert max-w-none space-y-8">
           <section>
             <p className="body-lg text-muted-foreground">
-              Esta Política de Privacidade descreve como {"{{PROJECT_NAME}}"} ("nós", "nosso" ou "site") 
-              coleta, usa e compartilha informações sobre você quando você visita nosso site 
+              This Privacy Policy describes how {"{{PROJECT_NAME}}"} ("we", "our" or "site")
+              collects, uses and shares information about you when you visit our site
               {"{{DOMAIN}}"}.
             </p>
             <p className="body-md text-muted-foreground">
-              Última atualização: Janeiro de 2025
+              Last updated: January 2025
             </p>
           </section>
 
           <section>
-            <h2 className="headline-md mb-4">1. Informações que Coletamos</h2>
-            <h3 className="headline-sm mb-2">1.1 Informações Fornecidas por Você</h3>
+            <h2 className="headline-md mb-4">1. Information We Collect</h2>
+            <h3 className="headline-sm mb-2">1.1 Information You Provide</h3>
             <p className="body-md text-muted-foreground mb-4">
-              Coletamos informações que você nos fornece diretamente, como:
+              We collect information that you provide directly to us, such as:
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li>Endereço de e-mail quando você se inscreve em nossa newsletter</li>
-              <li>Informações de contato quando você nos envia uma mensagem</li>
-              <li>Preferências de conteúdo e interesses</li>
+              <li>Email address when you subscribe to our newsletter</li>
+              <li>Contact information when you send us a message</li>
+              <li>Content preferences and interests</li>
             </ul>
 
-            <h3 className="headline-sm mb-2 mt-6">1.2 Informações Coletadas Automaticamente</h3>
+            <h3 className="headline-sm mb-2 mt-6">1.2 Information Collected Automatically</h3>
             <p className="body-md text-muted-foreground mb-4">
-              Quando você visita nosso site, coletamos automaticamente certas informações, incluindo:
+              When you visit our site, we automatically collect certain information, including:
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li>Endereço IP e localização geográfica aproximada</li>
-              <li>Tipo de navegador e sistema operacional</li>
-              <li>Páginas visitadas e tempo de permanência</li>
-              <li>Site de referência e termos de busca</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="headline-md mb-4">2. Cookies e Tecnologias de Rastreamento</h2>
-            <p className="body-md text-muted-foreground mb-4">
-              <strong>Importante:</strong> Terceiros, incluindo Google, PostHog e parceiros de publicidade, 
-              podem colocar e ler cookies no navegador dos usuários ou usar web beacons para coletar 
-              informações como resultado de anúncios veiculados em nosso site.
-            </p>
-            <p className="body-md text-muted-foreground mb-4">
-              Utilizamos os seguintes tipos de cookies:
-            </p>
-            <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li><strong>Cookies Essenciais:</strong> Necessários para o funcionamento básico do site</li>
-              <li><strong>Cookies de Análise:</strong> Nos ajudam a entender como os visitantes interagem com o site (ex: PostHog)</li>
-              <li><strong>Cookies de Publicidade:</strong> Usados para exibir anúncios relevantes (ex: Google Ads, Revive Adserver)</li>
-            </ul>
-            <p className="body-md text-muted-foreground mt-4">
-              Você pode controlar os cookies através das configurações do seu navegador. Note que 
-              desabilitar cookies pode afetar a funcionalidade do site.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="headline-md mb-4">3. Como Usamos Suas Informações</h2>
-            <p className="body-md text-muted-foreground mb-4">
-              Usamos as informações coletadas para:
-            </p>
-            <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li>Enviar nossa newsletter e atualizações sobre conteúdo financeiro</li>
-              <li>Melhorar nosso site e a experiência do usuário</li>
-              <li>Analisar tendências de uso e comportamento</li>
-              <li>Exibir anúncios personalizados</li>
-              <li>Responder às suas perguntas e solicitações</li>
-              <li>Prevenir fraudes e atividades ilegais</li>
+              <li>IP address and approximate geographic location</li>
+              <li>Browser type and operating system</li>
+              <li>Pages visited and time spent</li>
+              <li>Referring site and search terms</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="headline-md mb-4">4. Compartilhamento de Informações</h2>
+            <h2 className="headline-md mb-4">2. Cookies and Tracking Technologies</h2>
             <p className="body-md text-muted-foreground mb-4">
-              Podemos compartilhar suas informações com:
+              <strong>Important:</strong> Third parties, including Google, PostHog and advertising partners,
+              may place and read cookies on users' browsers or use web beacons to collect
+              information as a result of ads served on our site.
+            </p>
+            <p className="body-md text-muted-foreground mb-4">
+              We use the following types of cookies:
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li><strong>Provedores de Serviço:</strong> Empresas que nos ajudam a operar o site, como serviços de hospedagem e análise</li>
-              <li><strong>Parceiros de Publicidade:</strong> Para exibir anúncios relevantes em nosso site</li>
-              <li><strong>Autoridades Legais:</strong> Quando exigido por lei ou para proteger nossos direitos</li>
+              <li><strong>Essential Cookies:</strong> Necessary for the basic functioning of the site</li>
+              <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with the site (e.g., PostHog)</li>
+              <li><strong>Advertising Cookies:</strong> Used to display relevant ads (e.g., Google Ads, Revive Adserver)</li>
             </ul>
             <p className="body-md text-muted-foreground mt-4">
-              Não vendemos suas informações pessoais a terceiros.
+              You can control cookies through your browser settings. Note that
+              disabling cookies may affect site functionality.
             </p>
           </section>
 
           <section>
-            <h2 className="headline-md mb-4">5. Seus Direitos</h2>
+            <h2 className="headline-md mb-4">3. How We Use Your Information</h2>
             <p className="body-md text-muted-foreground mb-4">
-              De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem o direito de:
+              We use the collected information to:
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li>Acessar seus dados pessoais</li>
-              <li>Corrigir dados incompletos ou desatualizados</li>
-              <li>Solicitar a exclusão de seus dados</li>
-              <li>Revogar seu consentimento a qualquer momento</li>
-              <li>Optar por não receber comunicações de marketing</li>
+              <li>Send our newsletter and updates about financial content</li>
+              <li>Improve our site and user experience</li>
+              <li>Analyze usage trends and behavior</li>
+              <li>Display personalized ads</li>
+              <li>Respond to your questions and requests</li>
+              <li>Prevent fraud and illegal activities</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="headline-md mb-4">6. Segurança</h2>
-            <p className="body-md text-muted-foreground">
-              Implementamos medidas de segurança técnicas e organizacionais para proteger suas 
-              informações contra acesso não autorizado, alteração, divulgação ou destruição. 
-              No entanto, nenhuma transmissão de dados pela Internet é 100% segura.
+            <h2 className="headline-md mb-4">4. Information Sharing</h2>
+            <p className="body-md text-muted-foreground mb-4">
+              We may share your information with:
+            </p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2">
+              <li><strong>Service Providers:</strong> Companies that help us operate the site, such as hosting and analytics services</li>
+              <li><strong>Advertising Partners:</strong> To display relevant ads on our site</li>
+              <li><strong>Legal Authorities:</strong> When required by law or to protect our rights</li>
+            </ul>
+            <p className="body-md text-muted-foreground mt-4">
+              We do not sell your personal information to third parties.
             </p>
           </section>
 
           <section>
-            <h2 className="headline-md mb-4">7. Alterações nesta Política</h2>
+            <h2 className="headline-md mb-4">5. Your Rights</h2>
+            <p className="body-md text-muted-foreground mb-4">
+              In accordance with applicable data protection laws, you have the right to:
+            </p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2">
+              <li>Access your personal data</li>
+              <li>Correct incomplete or outdated data</li>
+              <li>Request deletion of your data</li>
+              <li>Revoke your consent at any time</li>
+              <li>Opt out of marketing communications</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="headline-md mb-4">6. Security</h2>
             <p className="body-md text-muted-foreground">
-              Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos sobre 
-              quaisquer alterações publicando a nova política nesta página e atualizando a data 
-              de "última atualização".
+              We implement technical and organizational security measures to protect your
+              information against unauthorized access, alteration, disclosure or destruction.
+              However, no data transmission over the Internet is 100% secure.
             </p>
           </section>
 
           <section>
-            <h2 className="headline-md mb-4">8. Contato</h2>
+            <h2 className="headline-md mb-4">7. Changes to This Policy</h2>
             <p className="body-md text-muted-foreground">
-              Se você tiver dúvidas sobre esta Política de Privacidade ou sobre como tratamos 
-              seus dados, entre em contato conosco através da nossa página de{" "}
+              We may update this Privacy Policy periodically. We will notify you of
+              any changes by posting the new policy on this page and updating the
+              "last updated" date.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="headline-md mb-4">8. Contact</h2>
+            <p className="body-md text-muted-foreground">
+              If you have questions about this Privacy Policy or how we handle
+              your data, please contact us through our{" "}
               <a href="/contato" className="link-finance" data-bvx-track="PRIVACY_CONTACT_LINK">
-                Contato
-              </a>.
+                Contact
+              </a> page.
             </p>
           </section>
 
           <section className="mt-12 p-6 bg-muted/30 rounded-lg border border-border">
             <p className="text-sm text-muted-foreground">
-              O site pode incluir erros técnicos, tipográficos ou fotográficos. 
-              Não garantimos que qualquer material no site seja preciso, completo ou atual. 
-              As informações fornecidas não constituem aconselhamento financeiro, de investimento ou jurídico.
+              The site may include technical, typographical or photographic errors.
+              We do not guarantee that any material on the site is accurate, complete or current.
+              The information provided does not constitute financial, investment or legal advice.
             </p>
           </section>
         </div>

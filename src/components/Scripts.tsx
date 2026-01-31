@@ -1,17 +1,17 @@
 import { useEffect } from "react";
-// AnalyticsService será SUBSTITUÍDO pelo do base-site durante scaffold
+// AnalyticsService will be REPLACED by the one from base-site during scaffold
 import { AnalyticsService } from "@/services/AnalyticsService";
-// AdService será SUBSTITUÍDO pelo do base-site durante scaffold
+// AdService will be REPLACED by the one from base-site during scaffold
 import { AdService } from "@/services/AdService";
 
 export const Scripts = () => {
   useEffect(() => {
-    // Inicializar Analytics (PostHog) - AnalyticsService será copiado do base-site
+    // Initialize Analytics (PostHog) - AnalyticsService will be copied from base-site
     AnalyticsService?.initialize().catch((err: any) =>
       console.warn("Failed to init analytics:", err)
     );
 
-    // Inicializar Revive Ads - AdService será copiado do base-site
+    // Initialize Revive Ads - AdService will be copied from base-site
     AdService?.initialize();
 
     return () => {

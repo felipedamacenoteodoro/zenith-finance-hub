@@ -5,11 +5,11 @@ import { AdSpot } from "./AdSpot";
 import { useTranslation } from "@/lib/i18n";
 
 const marketData = [
-  { name: "IBOV", value: "127.432", change: "+0,85%", up: true },
-  { name: "DÓLAR", value: "R$ 5,12", change: "-0,32%", up: false },
-  { name: "EURO", value: "R$ 5,58", change: "-0,18%", up: false },
-  { name: "BITCOIN", value: "US$ 43.250", change: "+2,15%", up: true },
-  { name: "SELIC", value: "11,25%", change: "0,00%", up: true },
+  { name: "S&P 500", value: "4,927", change: "+0.85%", up: true },
+  { name: "USD/EUR", value: "0.92", change: "-0.32%", up: false },
+  { name: "GOLD", value: "$2,035", change: "-0.18%", up: false },
+  { name: "BITCOIN", value: "$43,250", change: "+2.15%", up: true },
+  { name: "FED RATE", value: "5.25%", change: "0.00%", up: true },
 ];
 
 export const Header = () => {
@@ -21,10 +21,10 @@ export const Header = () => {
 
   const navCategories = [
     { to: "/", label: t("nav.home") },
-    { to: "/artigos?categoria=mercados", label: "Mercados" },
-    { to: "/artigos?categoria=investimentos", label: "Investimentos" },
-    { to: "/artigos?categoria=economia", label: "Economia" },
-    { to: "/artigos?categoria=negocios", label: "Negócios" },
+    { to: "/artigos?category=markets", label: "Markets" },
+    { to: "/artigos?category=investments", label: "Investments" },
+    { to: "/artigos?category=economy", label: "Economy" },
+    { to: "/artigos?category=business", label: "Business" },
     { to: "/ferramentas", label: t("nav.tools") },
   ];
 

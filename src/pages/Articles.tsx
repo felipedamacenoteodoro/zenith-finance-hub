@@ -9,8 +9,8 @@ import { ArticleService, Article } from "@/services/ArticleService";
 
 const Articles = () => {
   const [searchParams] = useSearchParams();
-  const category = searchParams.get("categoria") || "";
-  
+  const category = searchParams.get("category") || "";
+
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -26,19 +26,19 @@ const Articles = () => {
   return (
     <Layout>
       <SEO
-        title={category ? `${category} - Artigos` : "Artigos"}
-        description="Confira todos os artigos sobre finanças, investimentos, mercado e economia. Análises profundas e dicas práticas para suas decisões financeiras."
+        title={category ? `${category} - Articles` : "Articles"}
+        description="Check out all articles about finance, investments, markets and economy. In-depth analyses and practical tips for your financial decisions."
       />
 
       <div className="container py-8">
         <section className="mb-8">
           <h1 className="im-headline-hero mb-4">
-            {category ? category : "Todos os Artigos"}
+            {category ? category : "All Articles"}
           </h1>
           <p className="im-body text-muted-foreground max-w-2xl">
             {category
-              ? `Artigos sobre ${category.toLowerCase()} para manter você informado.`
-              : "Explore nossa coleção completa de artigos sobre finanças e investimentos."}
+              ? `Articles about ${category.toLowerCase()} to keep you informed.`
+              : "Explore our complete collection of articles about finance and investments."}
           </p>
         </section>
 
@@ -57,16 +57,16 @@ const Articles = () => {
                 className="px-4 py-2 bg-secondary text-foreground rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-secondary/80 transition-colors"
                 data-bvx-track="ARTICLES_PREV_PAGE"
               >
-                Anterior
+                Previous
               </button>
-              <span className="px-4 py-2 text-muted-foreground">Página {page}</span>
+              <span className="px-4 py-2 text-muted-foreground">Page {page}</span>
               <button
                 onClick={() => setPage((p) => p + 1)}
                 disabled={articles.length < 12}
                 className="px-4 py-2 bg-secondary text-foreground rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-secondary/80 transition-colors"
                 data-bvx-track="ARTICLES_NEXT_PAGE"
               >
-                Próxima
+                Next
               </button>
             </div>
           </div>

@@ -1,6 +1,6 @@
 /**
- * STUB - Este arquivo será SUBSTITUÍDO pelo do base-site durante scaffold
- * Mantido aqui apenas para garantir que os imports funcionem durante desenvolvimento local
+ * STUB - This file will be REPLACED by the one from base-site during scaffold
+ * Kept here only to ensure imports work during local development
  */
 
 export function useSearchTracking(
@@ -8,9 +8,9 @@ export function useSearchTracking(
   resultsCount: number,
   searchLocation: string = 'search-page'
 ): void {
-  // Stub - implementação real será copiada do base-site
+  // Stub - real implementation will be copied from base-site
   if (searchQuery && searchQuery.trim().length > 0) {
-    // No-op durante desenvolvimento
+    // No-op during development
   }
 }
 
@@ -19,6 +19,6 @@ export function trackSearchResultClick(
   resultPosition: number,
   resultTitle: string
 ): void {
-  // Stub - implementação real será copiada do base-site
-  // No-op durante desenvolvimento
+  // Stub - real implementation will be copied from base-site
+  // No-op during development
 }

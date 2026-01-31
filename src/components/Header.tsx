@@ -1,16 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, Menu, X, TrendingUp, TrendingDown, ChevronRight } from "lucide-react";
+import { Search, Menu, X, ChevronRight } from "lucide-react";
 import { AdSpot } from "./AdSpot";
 import { useTranslation } from "@/lib/i18n";
-
-const marketData = [
-  { name: "S&P 500", value: "4,927", change: "+0.85%", up: true },
-  { name: "USD/EUR", value: "0.92", change: "-0.32%", up: false },
-  { name: "GOLD", value: "$2,035", change: "-0.18%", up: false },
-  { name: "BITCOIN", value: "$43,250", change: "+2.15%", up: true },
-  { name: "FED RATE", value: "5.25%", change: "0.00%", up: true },
-];
 
 export const Header = () => {
   const { t } = useTranslation();
@@ -43,29 +35,6 @@ export const Header = () => {
       <div className="border-b border-border">
         <div className="container py-3">
           <AdSpot position="header" zoneId="{{REVIVE_ZONE_HEADER}}" className="w-full rounded" />
-        </div>
-      </div>
-
-      {/* Market Ticker */}
-      <div className="im-ticker overflow-hidden border-b border-border">
-        <div className="container">
-          <div className="flex items-center gap-1 py-2 overflow-x-auto scrollbar-hide">
-            {marketData.map((item, index) => (
-              <div
-                key={item.name}
-                className="im-ticker-item flex-shrink-0"
-                data-bvx-track={`TICKER_${item.name}`}
-              >
-                <span className="font-bold text-foreground text-sm">{item.name}</span>
-                <span className="text-muted-foreground text-sm">{item.value}</span>
-                <span className={`flex items-center gap-0.5 font-semibold text-sm ${item.up ? "im-ticker-up" : "im-ticker-down"}`}>
-                  {item.up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
-                  {item.change}
-                </span>
-                {index < marketData.length - 1 && <span className="text-border ml-3">|</span>}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 

@@ -21,19 +21,19 @@ const Index = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const mercadosArticles = articles.slice(0, 4);
-  const investimentosArticles = articles.slice(4, 8);
-  const economiaArticles = articles.slice(8, 12);
+  const marketsArticles = articles.slice(0, 4);
+  const investmentsArticles = articles.slice(4, 8);
+  const economyArticles = articles.slice(8, 12);
 
   return (
     <Layout>
       <SEO
-        title="Notícias de Finanças, Investimentos e Mercado"
-        description="Seu portal de notícias e análises do mercado financeiro. Encontre as melhores dicas de investimento, análises de mercado e ferramentas para suas finanças."
+        title="Finance, Investment and Market News"
+        description="Your portal for financial market news and analysis. Find the best investment tips, market analyses and tools for your finances."
       />
 
       <div className="container py-6">
-        <h1 className="sr-only">{"{{PROJECT_NAME}}"} - Portal de Finanças e Investimentos</h1>
+        <h1 className="sr-only">{"{{PROJECT_NAME}}"} - Finance and Investment Portal</h1>
 
         {/* Hero Section */}
         <section className="mb-8">
@@ -49,16 +49,16 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column - Main Content */}
           <div className="lg:col-span-8 space-y-8">
-            {/* Mercados Section */}
+            {/* Markets Section */}
             <section>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="im-section-title flex-1">Mercados</h2>
+                <h2 className="im-section-title flex-1">Markets</h2>
                 <Link
-                  to="/artigos?categoria=mercados"
+                  to="/artigos?category=markets"
                   className="flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-                  data-bvx-track="SECTION_MERCADOS_MORE"
+                  data-bvx-track="SECTION_MARKETS_MORE"
                 >
-                  Ver mais <ChevronRight className="h-4 w-4" />
+                  See more <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
 
@@ -75,7 +75,7 @@ const Index = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {mercadosArticles.map((article) => (
+                  {marketsArticles.map((article) => (
                     <ArticleCard key={article.id} article={article} variant="medium" />
                   ))}
                 </div>
@@ -85,16 +85,16 @@ const Index = () => {
             {/* ========== AD ZONE: IN-ARTICLE 1 ========== */}
             <AdSpot position="in-content" zoneId="{{REVIVE_ZONE_INARTICLE_1}}" className="w-full" />
 
-            {/* Investimentos Section */}
+            {/* Investments Section */}
             <section>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="im-section-title flex-1">Investimentos</h2>
+                <h2 className="im-section-title flex-1">Investments</h2>
                 <Link
-                  to="/artigos?categoria=investimentos"
+                  to="/artigos?category=investments"
                   className="flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-                  data-bvx-track="SECTION_INVESTIMENTOS_MORE"
+                  data-bvx-track="SECTION_INVESTMENTS_MORE"
                 >
-                  Ver mais <ChevronRight className="h-4 w-4" />
+                  See more <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
 
@@ -112,7 +112,7 @@ const Index = () => {
                 </div>
               ) : (
                 <div className="space-y-1">
-                  {investimentosArticles.map((article) => (
+                  {investmentsArticles.map((article) => (
                     <ArticleCard key={article.id} article={article} variant="small" />
                   ))}
                 </div>
@@ -122,16 +122,16 @@ const Index = () => {
             {/* ========== AD ZONE: IN-ARTICLE 2 ========== */}
             <AdSpot position="in-content" zoneId="{{REVIVE_ZONE_INARTICLE_2}}" className="w-full" />
 
-            {/* Economia Section */}
+            {/* Economy Section */}
             <section>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="im-section-title flex-1">Economia</h2>
+                <h2 className="im-section-title flex-1">Economy</h2>
                 <Link
-                  to="/artigos?categoria=economia"
+                  to="/artigos?category=economy"
                   className="flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-                  data-bvx-track="SECTION_ECONOMIA_MORE"
+                  data-bvx-track="SECTION_ECONOMY_MORE"
                 >
-                  Ver mais <ChevronRight className="h-4 w-4" />
+                  See more <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
 
@@ -147,7 +147,7 @@ const Index = () => {
                 </div>
               ) : (
                 <div className="space-y-0">
-                  {economiaArticles.map((article) => (
+                  {economyArticles.map((article) => (
                     <ArticleCard key={article.id} article={article} variant="list" />
                   ))}
                 </div>

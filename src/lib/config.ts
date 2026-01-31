@@ -1,6 +1,6 @@
 /**
- * STUB - Este arquivo será SUBSTITUÍDO pelo do base-site durante scaffold
- * Mantido aqui apenas para garantir que os imports funcionem durante desenvolvimento local
+ * STUB - This file will be REPLACED by the one from base-site during scaffold
+ * Kept here only to ensure imports work during local development
  */
 
 export const config = {
@@ -32,7 +32,7 @@ export const config = {
   newsletterEndpoint: import.meta.env.VITE_NEWSLETTER_ENDPOINT || '',
 
   // Locale
-  locale: import.meta.env.VITE_LOCALE || 'pt-BR',
+  locale: import.meta.env.VITE_LOCALE || 'en-US',
 } as const;
 
 export type Config = typeof config;

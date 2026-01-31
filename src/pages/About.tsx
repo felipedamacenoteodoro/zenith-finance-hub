@@ -6,27 +6,27 @@ import { Newsletter } from "@/components/Newsletter";
 const values = [
   {
     icon: Target,
-    title: "Precisão",
+    title: "Accuracy",
     description:
-      "Comprometemo-nos com a precisão e veracidade de todas as informações que publicamos, sempre baseadas em fontes confiáveis.",
+      "We are committed to the accuracy and truthfulness of all the information we publish, always based on reliable sources.",
   },
   {
     icon: Users,
-    title: "Acessibilidade",
+    title: "Accessibility",
     description:
-      "Tornamos o conhecimento financeiro acessível a todos, independente do nível de experiência com investimentos.",
+      "We make financial knowledge accessible to everyone, regardless of their level of investment experience.",
   },
   {
     icon: TrendingUp,
-    title: "Educação",
+    title: "Education",
     description:
-      "Acreditamos que a educação financeira é a base para decisões de investimento mais conscientes e seguras.",
+      "We believe that financial education is the foundation for more conscious and secure investment decisions.",
   },
   {
     icon: Shield,
-    title: "Independência",
+    title: "Independence",
     description:
-      "Mantemos independência editorial, sem vínculos com instituições financeiras que possam influenciar nosso conteúdo.",
+      "We maintain editorial independence, with no ties to financial institutions that could influence our content.",
   },
 ];
 
@@ -34,20 +34,20 @@ const About = () => {
   return (
     <Layout>
       <SEO
-        title="Sobre Nós"
-        description="Conheça o {{PROJECT_NAME}}, seu portal de confiança para informações financeiras, análises de mercado e educação sobre investimentos."
+        title="About Us"
+        description="Learn about {{PROJECT_NAME}}, your trusted portal for financial information, market analysis and investment education."
       />
 
       <div className="container py-8">
         {/* Hero */}
         <section className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="headline-xl mb-6">
-            Sobre o <span className="text-accent-gradient">{"{{PROJECT_NAME}}"}</span>
+            About <span className="text-accent-gradient">{"{{PROJECT_NAME}}"}</span>
           </h1>
           <p className="body-lg text-muted-foreground">
-            Somos um portal dedicado a democratizar o acesso à informação financeira de qualidade. 
-            Nossa missão é empoderar você com conhecimento para tomar decisões financeiras mais 
-            inteligentes e alcançar seus objetivos.
+            We are a portal dedicated to democratizing access to quality financial information.
+            Our mission is to empower you with knowledge to make smarter financial decisions
+            and achieve your goals.
           </p>
         </section>
 
@@ -56,16 +56,16 @@ const About = () => {
           <div className="card-finance-featured p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="headline-lg mb-4">Nossa Missão</h2>
+                <h2 className="headline-lg mb-4">Our Mission</h2>
                 <p className="body-md text-muted-foreground mb-4">
-                  O {"{{PROJECT_NAME}}"} nasceu da crença de que todos merecem acesso a informações 
-                  financeiras claras e imparciais. Em um mundo onde decisões financeiras impactam 
-                  diretamente a qualidade de vida, nosso papel é ser a ponte entre o complexo 
-                  mundo dos investimentos e o investidor comum.
+                  {"{{PROJECT_NAME}}"} was born from the belief that everyone deserves access to
+                  clear and impartial financial information. In a world where financial decisions
+                  directly impact quality of life, our role is to bridge the gap between the complex
+                  world of investments and the everyday investor.
                 </p>
                 <p className="body-md text-muted-foreground">
-                  Analisamos o mercado, traduzimos jargões financeiros e oferecemos ferramentas 
-                  práticas para que você possa construir seu patrimônio com segurança e confiança.
+                  We analyze the market, translate financial jargon and offer practical tools
+                  so you can build your wealth with security and confidence.
                 </p>
               </div>
               <div className="flex items-center justify-center">
@@ -79,7 +79,7 @@ const About = () => {
 
         {/* Values */}
         <section className="mb-16">
-          <h2 className="headline-lg text-center mb-12">Nossos Valores</h2>
+          <h2 className="headline-lg text-center mb-12">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value) => (
               <div key={value.title} className="card-finance p-6 text-center">
@@ -95,34 +95,34 @@ const About = () => {
 
         {/* What We Offer */}
         <section className="mb-16 max-w-4xl mx-auto">
-          <h2 className="headline-lg text-center mb-8">O Que Oferecemos</h2>
+          <h2 className="headline-lg text-center mb-8">What We Offer</h2>
           <div className="space-y-6">
             <div className="card-finance p-6">
-              <h3 className="headline-sm mb-2">Análises de Mercado</h3>
+              <h3 className="headline-sm mb-2">Market Analysis</h3>
               <p className="body-md text-muted-foreground">
-                Cobertura diária dos principais acontecimentos do mercado financeiro brasileiro 
-                e internacional, com análises aprofundadas e contextualizadas.
+                Daily coverage of the main events in the Brazilian and international financial
+                markets, with in-depth and contextualized analyses.
               </p>
             </div>
             <div className="card-finance p-6">
-              <h3 className="headline-sm mb-2">Educação Financeira</h3>
+              <h3 className="headline-sm mb-2">Financial Education</h3>
               <p className="body-md text-muted-foreground">
-                Artigos e guias para todos os níveis, desde conceitos básicos de finanças 
-                pessoais até estratégias avançadas de investimento.
+                Articles and guides for all levels, from basic personal finance concepts
+                to advanced investment strategies.
               </p>
             </div>
             <div className="card-finance p-6">
-              <h3 className="headline-sm mb-2">Ferramentas Práticas</h3>
+              <h3 className="headline-sm mb-2">Practical Tools</h3>
               <p className="body-md text-muted-foreground">
-                Calculadoras, simuladores e ferramentas interativas para ajudar você a 
-                planejar e acompanhar suas finanças.
+                Calculators, simulators and interactive tools to help you
+                plan and track your finances.
               </p>
             </div>
             <div className="card-finance p-6">
-              <h3 className="headline-sm mb-2">Newsletter Exclusiva</h3>
+              <h3 className="headline-sm mb-2">Exclusive Newsletter</h3>
               <p className="body-md text-muted-foreground">
-                Resumos semanais com as principais notícias e análises entregues diretamente 
-                na sua caixa de entrada.
+                Weekly summaries with the main news and analyses delivered directly
+                to your inbox.
               </p>
             </div>
           </div>
@@ -131,16 +131,16 @@ const About = () => {
         {/* Disclaimer */}
         <section className="mb-16 max-w-4xl mx-auto">
           <div className="p-6 bg-muted/30 rounded-lg border border-border">
-            <h3 className="headline-sm mb-4">Aviso Importante</h3>
+            <h3 className="headline-sm mb-4">Important Notice</h3>
             <p className="body-sm text-muted-foreground">
-              O {"{{PROJECT_NAME}}"} fornece conteúdo exclusivamente informativo e educacional. 
-              Não somos uma corretora, distribuidora ou consultoria de valores mobiliários. 
-              As informações apresentadas não constituem recomendação de investimento. 
-              Sempre consulte profissionais qualificados antes de tomar decisões financeiras.
+              {"{{PROJECT_NAME}}"} provides exclusively informational and educational content.
+              We are not a brokerage, distributor or securities consultant.
+              The information presented does not constitute investment recommendations.
+              Always consult qualified professionals before making financial decisions.
             </p>
             <p className="body-sm text-muted-foreground mt-4">
-              O site pode incluir erros técnicos, tipográficos ou fotográficos. 
-              Não garantimos que qualquer material no site seja preciso, completo ou atual.
+              The site may include technical, typographical or photographic errors.
+              We do not guarantee that any material on the site is accurate, complete or current.
             </p>
           </div>
         </section>

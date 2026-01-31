@@ -6,7 +6,7 @@ import { Layout } from "@/components/Layout";
 import { ArticleGrid } from "@/components/ArticleGrid";
 import { AdSpot } from "@/components/AdSpot";
 import { ArticleService, Article } from "@/services/ArticleService";
-// useSearchTracking será SUBSTITUÍDO pelo do base-site durante scaffold
+// useSearchTracking will be REPLACED by the one from base-site during scaffold
 import { useSearchTracking, trackSearchResultClick } from "@/hooks/useSearchTracking";
 
 const Search = () => {
@@ -29,30 +29,30 @@ const Search = () => {
     }
   }, [query]);
 
-  // Rastrear busca automaticamente (hook será copiado do base-site)
+  // Track search automatically (hook will be copied from base-site)
   useSearchTracking(query, articles.length, "search-page");
 
   return (
     <Layout>
       <SEO
-        title={query ? `Busca: ${query}` : "Busca"}
-        description={`Resultados da busca por "${query}" no portal de finanças.`}
+        title={query ? `Search: ${query}` : "Search"}
+        description={`Search results for "${query}" on the finance portal.`}
       />
 
       <div className="container py-8">
         <section className="mb-8">
           <h1 className="im-headline-hero mb-4 flex items-center gap-4">
             <SearchIcon className="h-8 w-8 text-primary" />
-            Resultados da Busca
+            Search Results
           </h1>
 
           {query && (
             <p className="body-lg text-muted-foreground">
               {loading
-                ? "Buscando..."
+                ? "Searching..."
                 : articles.length > 0
-                ? `${articles.length} resultado${articles.length > 1 ? "s" : ""} para "${query}"`
-                : `Nenhum resultado encontrado para "${query}"`}
+                ? `${articles.length} result${articles.length > 1 ? "s" : ""} for "${query}"`
+                : `No results found for "${query}"`}
             </p>
           )}
         </section>
@@ -60,9 +60,9 @@ const Search = () => {
         {!query ? (
           <div className="bg-card border border-border rounded p-12 text-center">
             <SearchIcon className="h-16 w-16 text-muted-foreground/50 mx-auto mb-4" />
-            <h2 className="im-headline-section mb-2">Digite algo para buscar</h2>
+            <h2 className="im-headline-section mb-2">Type something to search</h2>
             <p className="text-muted-foreground">
-              Use a barra de busca no cabeçalho para encontrar artigos.
+              Use the search bar in the header to find articles.
             </p>
           </div>
         ) : (
@@ -87,7 +87,7 @@ const Search = () => {
                       )}
                       {article.publishedAt && (
                         <time className="text-sm text-muted-foreground">
-                          {new Date(article.publishedAt).toLocaleDateString("pt-BR")}
+                          {new Date(article.publishedAt).toLocaleDateString("en-US")}
                         </time>
                       )}
                     </Link>

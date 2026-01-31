@@ -8,7 +8,7 @@ interface ArticleCardProps {
 }
 
 export const ArticleCard = ({ article, variant = "medium" }: ArticleCardProps) => {
-  const formattedDate = new Date(article.publishedAt).toLocaleDateString("pt-BR", {
+  const formattedDate = new Date(article.publishedAt).toLocaleDateString("en-US", {
     day: "2-digit",
     month: "short",
   });

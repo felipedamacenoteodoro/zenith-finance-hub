@@ -24,7 +24,7 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Navegação */}
+          {/* Navigation */}
           <div>
             <h3 className="font-bold text-sm uppercase tracking-wide mb-4 text-background">{t("footer.quickLinks")}</h3>
             <nav className="flex flex-col gap-2">
@@ -35,9 +35,9 @@ export const Footer = () => {
             </nav>
           </div>
 
-          {/* Institucional */}
+          {/* Institutional */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wide mb-4 text-background">Institucional</h3>
+            <h3 className="font-bold text-sm uppercase tracking-wide mb-4 text-background">Institutional</h3>
             <nav className="flex flex-col gap-2">
               <Link to="/sobre" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_ABOUT">{t("nav.about")}</Link>
               <Link to="/contato" className="text-sm text-background/70 hover:text-primary" data-bvx-track="FOOTER_NAV_CONTACT">{t("nav.contact")}</Link>
@@ -58,9 +58,9 @@ export const Footer = () => {
         {/* Disclaimer */}
         <div className="border-t border-background/20 pt-6">
           <p className="text-xs text-background/50 text-center max-w-3xl mx-auto mb-4">
-            O site pode incluir erros técnicos, tipográficos ou fotográficos. 
-            Não garantimos que qualquer material no site seja preciso, completo ou atual. 
-            As informações fornecidas não constituem aconselhamento financeiro, de investimento ou jurídico.
+            The site may include technical, typographical or photographic errors.
+            We do not guarantee that any material on the site is accurate, complete or current.
+            The information provided does not constitute financial, investment or legal advice.
           </p>
           <p className="text-xs text-background/50 text-center">
             © {currentYear} {"{{PROJECT_NAME}}"}. {t("footer.copyright")}.

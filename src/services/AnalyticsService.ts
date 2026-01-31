@@ -1,6 +1,6 @@
 /**
- * STUB - Este arquivo será SUBSTITUÍDO pelo do base-site durante scaffold
- * Mantido aqui apenas para garantir que os imports funcionem durante desenvolvimento local
+ * STUB - This file will be REPLACED by the one from base-site during scaffold
+ * Kept here only to ensure imports work during local development
  */
 
 class AnalyticsServiceClass {
@@ -16,11 +16,11 @@ class AnalyticsServiceClass {
   }
 
   public async initialize(): Promise<void> {
-    // Stub - implementação real será copiada do base-site
+    // Stub - real implementation will be copied from base-site
   }
 
   public capture(event: string, properties: Record<string, any> = {}): void {
-    // Stub - implementação real será copiada do base-site
+    // Stub - real implementation will be copied from base-site
     if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
       console.log('[AnalyticsService Stub]', event, properties);
     }

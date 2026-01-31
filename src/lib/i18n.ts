@@ -1,67 +1,67 @@
 /**
- * Sistema de Internacionalização (i18n)
- * 
- * Este sistema permite que o template seja facilmente traduzido pelo LangChain
- * baseado no idioma detectado do nicho/domínio.
- * 
- * A IA só precisa criar um novo arquivo em src/locales/{locale}.json
- * traduzindo os textos do arquivo base (pt-BR.json ou en-US.json)
+ * Internationalization (i18n) System
+ *
+ * This system allows the template to be easily translated by LangChain
+ * based on the detected language of the niche/domain.
+ *
+ * The AI only needs to create a new file in src/locales/{locale}.json
+ * translating the texts from the base file (en-US.json or pt-BR.json)
  */
 
-export type Locale = 'pt-BR' | 'en-US' | 'es-ES' | string;
+export type Locale = 'en-US' | 'pt-BR' | 'es-ES' | string;
 
 interface Translations {
   [key: string]: string | Translations;
 }
 
-// Cache de traduções carregadas
+// Loaded translations cache
 const translationsCache: Map<Locale, Translations> = new Map();
 
 /**
- * Carrega as traduções de um locale específico
+ * Loads translations for a specific locale
  */
 async function loadTranslations(locale: Locale): Promise<Translations> {
-  // Verifica cache
+  // Check cache
   if (translationsCache.has(locale)) {
     return translationsCache.get(locale)!;
   }
 
   try {
-    // Tenta carregar o arquivo de tradução
+    // Try to load the translation file
     const module = await import(`../locales/${locale}.json`);
     const translations = module.default || module;
     translationsCache.set(locale, translations);
     return translations;
   } catch (error) {
-    console.warn(`[i18n] Locale ${locale} não encontrado, usando pt-BR como fallback`);
-    
-    // Fallback para pt-BR
-    if (locale !== 'pt-BR') {
+    console.warn(`[i18n] Locale ${locale} not found, using en-US as fallback`);
+
+    // Fallback to en-US
+    if (locale !== 'en-US') {
       try {
-        const fallback = await import('../locales/pt-BR.json');
+        const fallback = await import('../locales/en-US.json');
         const translations = fallback.default || fallback;
         translationsCache.set(locale, translations);
         return translations;
       } catch {
-        // Se pt-BR também não existir, retorna objeto vazio
+        // If en-US also doesn't exist, return empty object
         return {};
       }
     }
-    
+
     return {};
   }
 }
 
 /**
- * Classe principal do sistema i18n
+ * Main i18n service class
  */
 class I18nService {
-  private locale: Locale = 'pt-BR';
+  private locale: Locale = 'en-US';
   private translations: Translations = {};
   private listeners: Set<() => void> = new Set();
 
   /**
-   * Inicializa o sistema com um locale
+   * Initializes the system with a locale
    */
   async init(locale: Locale): Promise<void> {
     this.locale = locale;
@@ -70,7 +70,7 @@ class I18nService {
   }
 
   /**
-   * Obtém uma tradução por chave (suporta notação de ponto: "home.title")
+   * Gets a translation by key (supports dot notation: "home.title")
    */
   t(key: string, params?: Record<string, string | number>): string {
     const keys = key.split('.');
@@ -80,8 +80,8 @@ class I18nService {
       if (value && typeof value === 'object' && k in value) {
         value = value[k];
       } else {
-        // Se não encontrar, retorna a chave
-        console.warn(`[i18n] Tradução não encontrada: ${key}`);
+        // If not found, return the key
+        console.warn(`[i18n] Translation not found: ${key}`);
         return key;
       }
     }
@@ -90,7 +90,7 @@ class I18nService {
       return key;
     }
 
-    // Substitui parâmetros no formato {{param}}
+    // Replace parameters in {{param}} format
     if (params) {
       return value.replace(/\{\{(\w+)\}\}/g, (match, paramKey) => {
         return params[paramKey]?.toString() || match;
@@ -101,14 +101,14 @@ class I18nService {
   }
 
   /**
-   * Obtém o locale atual
+   * Gets the current locale
    */
   getLocale(): Locale {
     return this.locale;
   }
 
   /**
-   * Registra um listener para mudanças de locale
+   * Registers a listener for locale changes
    */
   onLocaleChange(callback: () => void): () => void {
     this.listeners.add(callback);
@@ -125,11 +125,11 @@ class I18nService {
 // Singleton
 export const i18n = new I18nService();
 
-// Import React para o hook
+// Import React for the hook
 import React from 'react';
 
 /**
- * Hook React para usar traduções
+ * React hook to use translations
  */
 export function useTranslation() {
   const [locale, setLocaleState] = React.useState<Locale>(i18n.getLocale());

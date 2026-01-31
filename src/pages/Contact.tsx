@@ -32,13 +32,13 @@ const Contact = () => {
 
     // Basic validation
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      setError("Por favor, preencha todos os campos.");
+      setError("Please fill in all fields.");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setError("Por favor, insira um e-mail válido.");
+      setError("Please enter a valid email address.");
       return;
     }
 
@@ -52,11 +52,11 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error("Erro ao enviar mensagem");
+      if (!response.ok) throw new Error("Error sending message");
 
       setSubmitted(true);
     } catch {
-      setError("Erro ao enviar mensagem. Tente novamente mais tarde.");
+      setError("Error sending message. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -65,8 +65,8 @@ const Contact = () => {
   return (
     <Layout>
       <SEO
-        title="Contato"
-        description="Entre em contato com a equipe do {{PROJECT_NAME}}. Estamos prontos para responder suas dúvidas e receber seu feedback."
+        title="Contact"
+        description="Get in touch with the {{PROJECT_NAME}} team. We're ready to answer your questions and receive your feedback."
       />
 
       <div className="container py-8 max-w-2xl">
@@ -74,19 +74,19 @@ const Contact = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-6">
             <Mail className="h-8 w-8 text-primary" />
           </div>
-          <h1 className="headline-xl mb-4">Entre em Contato</h1>
+          <h1 className="headline-xl mb-4">Get in Touch</h1>
           <p className="body-lg text-muted-foreground">
-            Tem alguma dúvida, sugestão ou feedback? A equipe do {"{{PROJECT_NAME}}"} está 
-            pronta para ajudar. Preencha o formulário abaixo e responderemos o mais breve possível.
+            Have a question, suggestion, or feedback? The {"{{PROJECT_NAME}}"} team is
+            ready to help. Fill out the form below and we'll respond as soon as possible.
           </p>
         </section>
 
         {submitted ? (
           <div className="card-finance-featured p-12 text-center animate-fade-in">
             <CheckCircle className="h-16 w-16 text-primary mx-auto mb-6" />
-            <h2 className="headline-md mb-4">Mensagem Enviada!</h2>
+            <h2 className="headline-md mb-4">Message Sent!</h2>
             <p className="body-md text-muted-foreground">
-              Obrigado por entrar em contato. Analisaremos sua mensagem e retornaremos em breve.
+              Thank you for reaching out. We'll review your message and get back to you soon.
             </p>
           </div>
         ) : (
@@ -104,7 +104,7 @@ const Contact = () => {
 
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                Nome Completo *
+                Full Name *
               </label>
               <input
                 type="text"
@@ -113,14 +113,14 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Seu nome"
+                placeholder="Your name"
                 data-bvx-track="CONTACT_NAME_INPUT"
               />
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                E-mail *
+                Email *
               </label>
               <input
                 type="email"
@@ -129,14 +129,14 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="seu@email.com"
+                placeholder="your@email.com"
                 data-bvx-track="CONTACT_EMAIL_INPUT"
               />
             </div>
 
             <div>
               <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                Assunto *
+                Subject *
               </label>
               <select
                 id="subject"
@@ -146,18 +146,18 @@ const Contact = () => {
                 className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 data-bvx-track="CONTACT_SUBJECT_SELECT"
               >
-                <option value="">Selecione um assunto</option>
-                <option value="duvida">Dúvida</option>
-                <option value="sugestao">Sugestão de Conteúdo</option>
-                <option value="parceria">Parceria</option>
-                <option value="erro">Reportar Erro</option>
-                <option value="outro">Outro</option>
+                <option value="">Select a subject</option>
+                <option value="question">Question</option>
+                <option value="suggestion">Content Suggestion</option>
+                <option value="partnership">Partnership</option>
+                <option value="bug">Report a Bug</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                Mensagem *
+                Message *
               </label>
               <textarea
                 id="message"
@@ -166,7 +166,7 @@ const Contact = () => {
                 onChange={handleChange}
                 rows={6}
                 className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                placeholder="Escreva sua mensagem..."
+                placeholder="Write your message..."
                 data-bvx-track="CONTACT_MESSAGE_INPUT"
               />
             </div>
@@ -185,19 +185,19 @@ const Contact = () => {
               data-bvx-track="CONTACT_SUBMIT"
             >
               {loading ? (
-                "Enviando..."
+                "Sending..."
               ) : (
                 <>
                   <Send className="h-5 w-5" />
-                  Enviar Mensagem
+                  Send Message
                 </>
               )}
             </button>
 
             <p className="text-xs text-muted-foreground text-center">
-              Ao enviar esta mensagem, você concorda com nossa{" "}
+              By sending this message, you agree to our{" "}
               <a href="/privacidade" className="link-finance" data-bvx-track="CONTACT_PRIVACY_LINK">
-                Política de Privacidade
+                Privacy Policy
               </a>
               .
             </p>
@@ -207,9 +207,9 @@ const Contact = () => {
         {/* Notice */}
         <div className="mt-8 p-6 bg-muted/30 rounded-lg border border-border">
           <p className="text-sm text-muted-foreground text-center">
-            O {"{{PROJECT_NAME}}"} não oferece atendimento por telefone ou presencial. 
-            Todas as comunicações são realizadas exclusivamente por meio deste formulário 
-            ou através de nossa newsletter.
+            {"{{PROJECT_NAME}}"} does not offer phone or in-person support.
+            All communications are conducted exclusively through this form
+            or through our newsletter.
           </p>
         </div>
       </div>

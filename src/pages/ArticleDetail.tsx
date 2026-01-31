@@ -5,21 +5,21 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/Layout";
 import { AdSpot } from "@/components/AdSpot";
 import { Newsletter } from "@/components/Newsletter";
-// useScrollDepth será SUBSTITUÍDO pelo do base-site durante scaffold
+// useScrollDepth will be REPLACED by the one from base-site during scaffold
 import { useScrollDepth } from "@/hooks/useScrollDepth";
-// AnalyticsService será SUBSTITUÍDO pelo do base-site durante scaffold
+// AnalyticsService will be REPLACED by the one from base-site during scaffold
 import { AnalyticsService } from "@/services/AnalyticsService";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 
 /**
- * ArticleDetail - Página de detalhe do artigo
- * 
- * JÁ INCLUI:
- * - AdSpot antes do conteúdo
- * - AdSpot depois do conteúdo
- * - Newsletter após o artigo
+ * ArticleDetail - Article detail page
+ *
+ * ALREADY INCLUDES:
+ * - AdSpot before content
+ * - AdSpot after content
+ * - Newsletter after article
  * - SEO meta tags
- * - Analytics tracking (article_view e article_scroll_deep)
+ * - Analytics tracking (article_view and article_scroll_deep)
  */
 export default function ArticleDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -36,17 +36,17 @@ export default function ArticleDetail() {
         const data = await ArticleService.getArticleBySlug(slug);
         if (data) {
           setArticle(data);
-          // Rastrear visualização do artigo
+          // Track article view
           AnalyticsService?.capture("article_view", {
             article_slug: slug,
             article_title: data.title,
             article_category: data.category,
           });
         } else {
-          setError("Artigo não encontrado");
+          setError("Article not found");
         }
       } catch (err) {
-        setError("Erro ao carregar artigo");
+        setError("Error loading article");
       } finally {
         setLoading(false);
       }
@@ -55,7 +55,7 @@ export default function ArticleDetail() {
     loadArticle();
   }, [slug]);
 
-  // Rastrear scroll profundo no artigo (hook será copiado do base-site)
+  // Track deep scroll in article (hook will be copied from base-site)
   if (article) {
     useScrollDepth(article.id, article.slug, true, 50);
   }
@@ -74,9 +74,9 @@ export default function ArticleDetail() {
     return (
       <Layout>
         <div className="text-center py-16">
-          <h1 className="text-2xl font-bold mb-4">{error || "Artigo não encontrado"}</h1>
+          <h1 className="text-2xl font-bold mb-4">{error || "Article not found"}</h1>
           <Link to="/artigos" className="text-primary hover:underline">
-            Voltar para artigos
+            Back to articles
           </Link>
         </div>
       </Layout>
@@ -100,7 +100,7 @@ export default function ArticleDetail() {
           className="inline-flex items-center text-primary hover:underline mb-6"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Voltar para artigos
+          Back to articles
         </Link>
 
         {/* AD SPOT: Before Article */}
@@ -118,13 +118,13 @@ export default function ArticleDetail() {
             {publishDate && (
               <span className="flex items-center">
                 <Calendar className="w-4 h-4 mr-1" />
-                {new Date(publishDate).toLocaleDateString("pt-BR")}
+                {new Date(publishDate).toLocaleDateString("en-US")}
               </span>
             )}
             {article.readTime && (
               <span className="flex items-center">
                 <Clock className="w-4 h-4 mr-1" />
-                {article.readTime} min de leitura
+                {article.readTime} min read
               </span>
             )}
             {article.category && (

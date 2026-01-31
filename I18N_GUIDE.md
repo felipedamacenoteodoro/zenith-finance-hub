@@ -1,61 +1,61 @@
-# Guia de Internacionalização (i18n)
+# Internationalization (i18n) Guide
 
-Este template usa um sistema de internacionalização baseado em arquivos JSON, facilitando a tradução pelo LangChain baseado no idioma detectado do nicho/domínio.
+This template uses a JSON file-based internationalization system, making it easy for LangChain to translate based on the detected language of the niche/domain.
 
-## Como Funciona
+## How It Works
 
-1. **Arquivos de Tradução**: Cada idioma tem um arquivo JSON em `src/locales/{locale}.json`
-2. **Sistema i18n**: O serviço em `src/lib/i18n.ts` carrega e gerencia as traduções
-3. **Hook React**: Use `useTranslation()` nos componentes para acessar traduções
-4. **Locale Automático**: O locale é definido via `VITE_LOCALE` (configurado durante scaffold)
+1. **Translation Files**: Each language has a JSON file in `src/locales/{locale}.json`
+2. **i18n System**: The service in `src/lib/i18n.ts` loads and manages translations
+3. **React Hook**: Use `useTranslation()` in components to access translations
+4. **Automatic Locale**: The locale is defined via `VITE_LOCALE` (configured during scaffold)
 
-## Estrutura dos Arquivos de Tradução
+## Translation File Structure
 
-Cada arquivo JSON segue uma estrutura hierárquica:
+Each JSON file follows a hierarchical structure:
 
 ```json
 {
   "common": {
-    "loading": "Carregando...",
-    "error": "Erro"
+    "loading": "Loading...",
+    "error": "Error"
   },
   "nav": {
-    "home": "Início",
-    "articles": "Artigos"
+    "home": "Home",
+    "articles": "Articles"
   },
   "home": {
-    "title": "Bem-vindo",
+    "title": "Welcome",
     "newsletter": {
-      "title": "Newsletter Gratuita"
+      "title": "Free Newsletter"
     }
   }
 }
 ```
 
-## Como a IA Deve Criar Novos Arquivos de Tradução
+## How AI Should Create New Translation Files
 
-Quando o LangChain detectar um novo idioma (ex: `es-ES`, `fr-FR`), ele deve:
+When LangChain detects a new language (e.g., `es-ES`, `fr-FR`), it should:
 
-1. **Copiar o arquivo base** (`pt-BR.json` ou `en-US.json`)
-2. **Traduzir todos os valores** mantendo a estrutura de chaves
-3. **Salvar como** `src/locales/{locale}.json`
+1. **Copy the base file** (`en-US.json` or `pt-BR.json`)
+2. **Translate all values** while maintaining the key structure
+3. **Save as** `src/locales/{locale}.json`
 
-### Exemplo de Prompt para IA:
+### Example Prompt for AI:
 
 ```
-Traduza o arquivo src/locales/pt-BR.json para espanhol (es-ES).
-Mantenha todas as chaves JSON exatamente iguais, traduzindo apenas os valores.
-Salve o resultado em src/locales/es-ES.json.
+Translate the file src/locales/en-US.json to Spanish (es-ES).
+Keep all JSON keys exactly the same, translating only the values.
+Save the result in src/locales/es-ES.json.
 ```
 
-## Como Usar nos Componentes
+## How to Use in Components
 
 ```tsx
 import { useTranslation } from "@/lib/i18n";
 
 function MyComponent() {
   const { t } = useTranslation();
-  
+
   return (
     <div>
       <h1>{t("home.title")}</h1>
@@ -66,50 +66,50 @@ function MyComponent() {
 }
 ```
 
-## Traduções com Parâmetros
+## Translations with Parameters
 
-Para traduções que precisam de valores dinâmicos:
+For translations that need dynamic values:
 
 ```json
 {
   "search": {
-    "resultsFor": "Resultados para {{query}}"
+    "resultsFor": "Results for {{query}}"
   }
 }
 ```
 
 ```tsx
-{t("search.resultsFor", { query: "finanças" })}
-// Resultado: "Resultados para finanças"
+{t("search.resultsFor", { query: "finance" })}
+// Result: "Results for finance"
 ```
 
-## Locales Suportados
+## Supported Locales
 
-- `pt-BR` - Português do Brasil (padrão)
-- `en-US` - Inglês dos Estados Unidos
-- `es-ES` - Espanhol da Espanha
-- `es-MX` - Espanhol do México
-- `fr-FR` - Francês da França
-- `de-DE` - Alemão
-- `it-IT` - Italiano
-- `ja-JP` - Japonês
-- `zh-CN` - Chinês Simplificado
+- `en-US` - US English (default)
+- `pt-BR` - Brazilian Portuguese
+- `es-ES` - Spanish (Spain)
+- `es-MX` - Spanish (Mexico)
+- `fr-FR` - French (France)
+- `de-DE` - German
+- `it-IT` - Italian
+- `ja-JP` - Japanese
+- `zh-CN` - Simplified Chinese
 
-## Inicialização
+## Initialization
 
-O i18n é inicializado automaticamente no `main.tsx` usando `VITE_LOCALE`:
+i18n is automatically initialized in `main.tsx` using `VITE_LOCALE`:
 
 ```tsx
-const locale = import.meta.env.VITE_LOCALE || 'pt-BR';
+const locale = import.meta.env.VITE_LOCALE || 'en-US';
 i18n.init(locale).then(() => {
-  // App inicia após i18n estar pronto
+  // App starts after i18n is ready
 });
 ```
 
-## Vantagens desta Abordagem
+## Advantages of This Approach
 
-1. ✅ **Fácil para IA**: Apenas criar um arquivo JSON traduzido
-2. ✅ **Estruturado**: Chaves organizadas por seção
-3. ✅ **Type-safe**: TypeScript ajuda a evitar erros
-4. ✅ **Performático**: Traduções carregadas uma vez e cacheadas
-5. ✅ **Fallback**: Se um locale não existir, usa pt-BR como fallback
+1. **Easy for AI**: Just create a translated JSON file
+2. **Structured**: Keys organized by section
+3. **Type-safe**: TypeScript helps avoid errors
+4. **Performant**: Translations loaded once and cached
+5. **Fallback**: If a locale doesn't exist, uses en-US as fallback

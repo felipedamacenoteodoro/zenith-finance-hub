@@ -1,15 +1,15 @@
 /**
- * NewsletterService - Este arquivo será SUBSTITUÍDO pelo do base-site durante scaffold
- * 
- * Mantido aqui apenas para garantir que os imports funcionem durante desenvolvimento.
- * O arquivo real será copiado de server/templates/base-site/src/services/NewsletterService.ts
- * 
- * O NewsletterService do base-site já inclui:
- * - websiteId: config.siteId (necessário para tracking)
+ * NewsletterService - This file will be REPLACED by the one from base-site during scaffold
+ *
+ * Kept here only to ensure imports work during development.
+ * The real file will be copied from server/templates/base-site/src/services/NewsletterService.ts
+ *
+ * The base-site NewsletterService already includes:
+ * - websiteId: config.siteId (needed for tracking)
  * - website_url: '' (honeypot field)
  */
 
-// config será SUBSTITUÍDO pelo do base-site durante scaffold
+// config will be REPLACED by the one from base-site during scaffold
 import { config } from "@/lib/config";
 
 export interface NewsletterSubscription {
@@ -23,7 +23,7 @@ export interface NewsletterResponse {
   message: string;
 }
 
-// Versão temporária - será substituída pelo base-site
+// Temporary version - will be replaced by base-site
 class NewsletterServiceClass {
   private static instance: NewsletterServiceClass;
 
@@ -37,11 +37,11 @@ class NewsletterServiceClass {
   }
 
   public async subscribe(data: NewsletterSubscription): Promise<NewsletterResponse> {
-    // Este método será substituído pelo do base-site
-    // O base-site já envia websiteId e website_url corretamente
+    // This method will be replaced by the one from base-site
+    // The base-site already sends websiteId and website_url correctly
     return {
       success: false,
-      message: "NewsletterService será substituído durante scaffold",
+      message: "NewsletterService will be replaced during scaffold",
     };
   }
 

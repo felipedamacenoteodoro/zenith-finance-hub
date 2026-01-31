@@ -1,16 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, Menu, X, TrendingUp, TrendingDown, ChevronRight } from "lucide-react";
+import { Search, Menu, X, ChevronRight } from "lucide-react";
 import { AdSpot } from "./AdSpot";
 import { useTranslation } from "@/lib/i18n";
-
-const marketData = [
-  { name: "IBOV", value: "127.432", change: "+0,85%", up: true },
-  { name: "DÓLAR", value: "R$ 5,12", change: "-0,32%", up: false },
-  { name: "EURO", value: "R$ 5,58", change: "-0,18%", up: false },
-  { name: "BITCOIN", value: "US$ 43.250", change: "+2,15%", up: true },
-  { name: "SELIC", value: "11,25%", change: "0,00%", up: true },
-];
 
 export const Header = () => {
   const { t } = useTranslation();
@@ -21,10 +13,10 @@ export const Header = () => {
 
   const navCategories = [
     { to: "/", label: t("nav.home") },
-    { to: "/artigos?categoria=mercados", label: "Mercados" },
-    { to: "/artigos?categoria=investimentos", label: "Investimentos" },
-    { to: "/artigos?categoria=economia", label: "Economia" },
-    { to: "/artigos?categoria=negocios", label: "Negócios" },
+    { to: "/artigos?category=markets", label: "Markets" },
+    { to: "/artigos?category=investments", label: "Investments" },
+    { to: "/artigos?category=economy", label: "Economy" },
+    { to: "/artigos?category=business", label: "Business" },
     { to: "/ferramentas", label: t("nav.tools") },
   ];
 
@@ -43,29 +35,6 @@ export const Header = () => {
       <div className="border-b border-border">
         <div className="container py-3">
           <AdSpot position="header" zoneId="{{REVIVE_ZONE_HEADER}}" className="w-full rounded" />
-        </div>
-      </div>
-
-      {/* Market Ticker */}
-      <div className="im-ticker overflow-hidden border-b border-border">
-        <div className="container">
-          <div className="flex items-center gap-1 py-2 overflow-x-auto scrollbar-hide">
-            {marketData.map((item, index) => (
-              <div
-                key={item.name}
-                className="im-ticker-item flex-shrink-0"
-                data-bvx-track={`TICKER_${item.name}`}
-              >
-                <span className="font-bold text-foreground text-sm">{item.name}</span>
-                <span className="text-muted-foreground text-sm">{item.value}</span>
-                <span className={`flex items-center gap-0.5 font-semibold text-sm ${item.up ? "im-ticker-up" : "im-ticker-down"}`}>
-                  {item.up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
-                  {item.change}
-                </span>
-                {index < marketData.length - 1 && <span className="text-border ml-3">|</span>}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 

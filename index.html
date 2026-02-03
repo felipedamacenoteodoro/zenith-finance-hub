@@ -1,22 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{LANG_CODE}}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <!-- Primary SEO -->
+    <title>{{PROJECT_NAME}}</title>
+    <meta name="description" content="{{SITE_DESCRIPTION}}" />
+    <meta name="keywords" content="{{SITE_KEYWORDS}}" />
+    <meta name="author" content="{{SITE_AUTHOR}}" />
+    <meta name="theme-color" content="{{THEME_COLOR}}" />
+    <link rel="canonical" href="{{SITE_URL}}" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="{{SITE_URL}}" />
+    <meta property="og:title" content="{{PROJECT_NAME}}" />
+    <meta property="og:description" content="{{SITE_DESCRIPTION}}" />
+    <meta property="og:image" content="{{OG_IMAGE}}" />
+    <meta property="og:site_name" content="{{PROJECT_NAME}}" />
+    <meta property="og:locale" content="{{OG_LOCALE}}" />
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:site" content="{{TWITTER_HANDLE}}" />
+    <meta name="twitter:title" content="{{PROJECT_NAME}}" />
+    <meta name="twitter:description" content="{{SITE_DESCRIPTION}}" />
+    <meta name="twitter:image" content="{{TWITTER_IMAGE}}" />
+
+    <!-- LLM SEO / Structured Data Hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
 
   <body>
